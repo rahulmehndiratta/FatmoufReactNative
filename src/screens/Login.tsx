@@ -5,6 +5,7 @@ import {Utils} from '@Utils';
 import TextFiled from '@components/TextFiled';
 import MyTextInput from '@components/MyTextInput';
 import ClickableText from '@components/ClickableText';
+import {Navigator} from '@Navigator';
 interface Props {}
 const Login: React.FC<Props> = (props: any) => {
   const [email, setEmail] = useState('');
