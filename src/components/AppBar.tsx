@@ -23,6 +23,7 @@ export interface Props {
   titleColor?: string;
   componentId: any;
   centerIcon?: ImageSourcePropType;
+  prevScreenName?: any;
 }
 const AppBar: React.FC<Props> = props => {
   let {
@@ -36,6 +37,7 @@ const AppBar: React.FC<Props> = props => {
     leftIconPress,
     rightIconPress,
     centerIcon,
+    prevScreenName,
   } = props;
   return (
     <View
@@ -44,12 +46,14 @@ const AppBar: React.FC<Props> = props => {
         height: centerIcon ? undefined : Utils.calculateHeight(56),
         backgroundColor: backgroundColor ?? color.appBar,
         flexDirection: 'row',
+        alignItems: 'center',
       }}>
       <View
         style={{
-          flex: 1,
+          flex: 1.5,
           justifyContent: 'center',
           alignItems: 'center',
+          flexDirection: 'row',
         }}>
         {!isHideBack && (
           <Pressable
@@ -63,6 +67,9 @@ const AppBar: React.FC<Props> = props => {
               style={{height: 20, width: 20}}
             />
           </Pressable>
+        )}
+        {prevScreenName && (
+          <Text style={styles.screenName}>{prevScreenName}</Text>
         )}
       </View>
 
@@ -117,5 +124,9 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     tintColor: color.black,
     shadowColor: '#63F4F766',
+  },
+  screenName: {
+    fontSize: fontSize.size_16,
+    color: color.white,
   },
 });

@@ -10,6 +10,7 @@ import {
 import React from 'react';
 import {color, fontFamily, fontSize} from '@styles';
 import {Utils} from '@Utils';
+import CustomButton from './CustomButton';
 
 export interface Props {
   placeholder?: any;
@@ -27,6 +28,7 @@ export interface Props {
   iconHeight?: any;
   iconColor?: any;
   secureTextEntry?: boolean;
+  width?: any;
 }
 
 const MyTextInput: React.FC<Props> = props => {
@@ -46,13 +48,18 @@ const MyTextInput: React.FC<Props> = props => {
     iconHeight,
     iconColor,
     secureTextEntry,
+    width,
   } = props;
 
   return (
     <View
       style={[
         styles.container,
-        {marginTop: marginTop, minHeight: height ?? Utils.calculateHeight(50)},
+        {
+          marginTop: marginTop,
+          minHeight: height ?? Utils.calculateHeight(50),
+          width: width ?? '100%',
+        },
       ]}>
       {leftIcon && (
         <Image
@@ -61,7 +68,7 @@ const MyTextInput: React.FC<Props> = props => {
           style={[
             styles.ivLeftIcon,
             {
-              height: iconHeight ?? Utils.calculateHeight(20),
+              height: iconHeight ?? Utils.calculateHeight(25),
               width: iconWidth ?? Utils.calculateWidth(20),
               tintColor: iconColor ?? color.black,
             },

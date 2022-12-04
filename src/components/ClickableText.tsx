@@ -1,6 +1,6 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {fontFamily, fontSize} from '@styles';
+import {color, fontFamily, fontSize} from '@styles';
 import {Utils} from '@Utils';
 interface Props {
   text: string;
@@ -11,6 +11,8 @@ interface Props {
   textDecoration?: any;
   alignSelf?: any;
   marginLeft?: any;
+  extraText?: any;
+  fontWeight?: any;
 }
 const ClickableText: React.FC<Props> = (props: any) => {
   const {
@@ -22,6 +24,8 @@ const ClickableText: React.FC<Props> = (props: any) => {
     textSize,
     alignSelf,
     marginLeft,
+    extraText,
+    fontWeight,
   } = props;
   return (
     <Pressable
@@ -31,15 +35,20 @@ const ClickableText: React.FC<Props> = (props: any) => {
         alignSelf: alignSelf ?? 'flex-end',
         marginLeft: marginLeft ?? Utils.calculateHeight(10),
       }}>
-      <Text
-        style={[
-          styles.textStyle,
-          {
-            textDecorationLine: textDecoration ?? 'underline',
-            fontSize: textSize ?? fontSize.size_12,
-          },
-        ]}>
-        {text}
+      <Text>
+        {extraText}
+        <Text
+          style={[
+            styles.textStyle,
+            {
+              textDecorationLine: textDecoration ?? 'underline',
+              fontSize: textSize ?? fontSize.size_12,
+              fontWeight: fontWeight,
+              color: textColor ?? color.black,
+            },
+          ]}>
+          {text}
+        </Text>
       </Text>
     </Pressable>
   );

@@ -6,11 +6,12 @@ import {
   SafeAreaView,
   ScrollView,
   StyleSheet,
+  Text,
   View,
 } from 'react-native';
 import React, {useRef} from 'react';
 import AppBar from '@components/AppBar';
-import {color} from '@styles';
+import {color, fontSize} from '@styles';
 import {Utils} from '@Utils';
 export interface Props {
   children?: React.ReactNode;
@@ -29,6 +30,7 @@ export interface Props {
   sourceBg?: ImageSourcePropType;
   centerIcon?: ImageSourcePropType;
   rightIconPress?: null | ((event: GestureResponderEvent) => void) | undefined;
+  prevScreenName?: string;
 }
 
 const MySafeArea: React.FC<Props> = props => {
@@ -48,12 +50,15 @@ const MySafeArea: React.FC<Props> = props => {
     rightIconPress,
     sourceBg,
     centerIcon,
+    prevScreenName,
   } = props;
 
   const _scrollRender = () => {
     return isScroll === true ? (
       <ScrollView scrollEnabled={isScroll} showsVerticalScrollIndicator={false}>
-        {props?.children}
+        <View style={{flex: 1, paddingHorizontal: Utils.calculateWidth(20)}}>
+          {props.children}
+        </View>
       </ScrollView>
     ) : (
       _viewRender()
@@ -86,6 +91,7 @@ const MySafeArea: React.FC<Props> = props => {
           leftIconPress={leftIconPress}
           rightIconPress={rightIconPress}
           centerIcon={centerIcon}
+          prevScreenName={prevScreenName}
         />
       )}
       {_scrollRender()}
