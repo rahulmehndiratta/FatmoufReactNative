@@ -78,7 +78,10 @@ const MyTextInput: React.FC<Props> = props => {
       <TextInput
         style={[
           styles.inputContainer,
-          {textAlignVertical: multiline === true ? 'top' : 'auto'},
+          {
+            textAlignVertical: multiline === true ? 'top' : 'auto',
+            textAlign: width == '45%' ? 'center' : 'left',
+          },
         ]}
         multiline={multiline}
         numberOfLines={numberOfLines ?? 1}
@@ -102,7 +105,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     // borderWidth: 1,
     backgroundColor: color.white,
-    // borderColor: color.borderBlack,
+    borderColor: 'gray',
     alignItems: 'center',
     borderRadius: Utils.calculateHeight(10),
     shadowColor: color.black,
@@ -111,8 +114,8 @@ const styles = StyleSheet.create({
       height: 2,
     },
     shadowOpacity: 1,
-    shadowRadius: 10,
-    elevation: 5,
+    shadowRadius: 20,
+    elevation: 10,
     paddingHorizontal: 10,
   },
 

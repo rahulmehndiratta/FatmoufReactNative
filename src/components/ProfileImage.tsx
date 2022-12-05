@@ -30,6 +30,7 @@ const ProfileImage: React.FC<Props> = (props: any) => {
             style={{
               width: Utils.calculateWidth(120),
               height: Utils.calculateHeight(120),
+              borderRadius: 70,
             }}
           />
         )}
