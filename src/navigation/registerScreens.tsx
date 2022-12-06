@@ -2,13 +2,13 @@ import {Navigation} from 'react-native-navigation';
 import Splash from '../screens/Splash';
 // import MyFlash from '@components/MyFlash';
 // import MyLoader from '@components/MyLoader';
-import Login from 'screens/Login';
-import ForgotPassword from 'screens/ForgotPassword';
-import SignUp from 'screens/SignUp';
+import Login from 'screens/Auth/Login';
+import ForgotPassword from 'screens/Auth/ForgotPassword';
+import SignUp from 'screens/Auth/SignUp';
 import Profile from 'screens/Home/Profile';
 import Competitive from 'screens/Home/Competitive';
 import TalkYoTalk from 'screens/Home/TalkYoTalk';
-import Notification from 'screens/Notification';
+import Notification from 'screens/Home/Notification';
 
 export const screenName = {
   Splash: 'Splash',
