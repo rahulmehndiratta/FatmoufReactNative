@@ -8,6 +8,7 @@ import SignUp from 'screens/SignUp';
 import Profile from 'screens/Home/Profile';
 import Competitive from 'screens/Home/Competitive';
 import TalkToTalk from 'screens/Home/TalkToTalk';
+import Notification from 'screens/Notification';
 
 export const screenName = {
   Splash: 'Splash',
@@ -19,6 +20,7 @@ export const screenName = {
   Profile: 'Profile',
   Competitive: 'Competitive',
   TalkToTalk: 'TalkToTalk',
+  Notification: 'Notification',
 };
 
 export function registerScreens() {
@@ -29,4 +31,5 @@ export function registerScreens() {
   Navigation.registerComponent(screenName.Profile, () => Profile);
   Navigation.registerComponent(screenName.Competitive, () => Competitive);
   Navigation.registerComponent(screenName.TalkToTalk, () => TalkToTalk);
+  Navigation.registerComponent(screenName.Notification, () => Notification);
 }
