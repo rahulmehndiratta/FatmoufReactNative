@@ -1,4 +1,4 @@
-import {Navigation} from 'react-native-navigation';
+import {Navigation, OptionsModalPresentationStyle} from 'react-native-navigation';
 import {registerScreens, screenName} from '@screenName';
 import {color} from '@styles';
 import {LogBox} from 'react-native';
@@ -36,7 +36,7 @@ export const Navigator = {
                 ],
                 options: {
                   bottomTab: {
-                    icon: require('@images/bottomTab/menu-trophy-2.png'),
+                    icon: require('@images/bottomTab/menu-trophy.png'),
                     text: 'Competitive',
                   },
                 },
@@ -55,7 +55,7 @@ export const Navigator = {
                 ],
                 options: {
                   bottomTab: {
-                    icon: require('@images/bottomTab/menu-trophy-2.png'),
+                    icon: require('@images/bottomTab/menu_chat.png'),
                     text: 'Talk Yo Talk',
                   },
                 },
@@ -74,7 +74,7 @@ export const Navigator = {
                 ],
                 options: {
                   bottomTab: {
-                    icon: require('@images/bottomTab/menu-trophy-2.png'),
+                    icon: require('@images/bottomTab/menu-user-profile.png'),
                     text: 'Profile',
                   },
                 },
@@ -93,7 +93,7 @@ export const Navigator = {
                 ],
                 options: {
                   bottomTab: {
-                    icon: require('@images/bottomTab/menu-trophy-2.png'),
+                    icon: require('@images/bottomTab/menu-noti.png'),
                     text: 'Notification',
                   },
                 },
@@ -210,7 +210,7 @@ export const Navigator = {
                 overlay: {
                   interceptTouchOutside: false, // this make touch events pass through the invisible parts of the overlay
                 },
-                modalPresentationStyle: 'overCurrentContext',
+                modalPresentationStyle: OptionsModalPresentationStyle.overCurrentContext,
                 // screenBackgroundColor: 'red',
 
                 layout: {
@@ -299,18 +299,18 @@ export const Navigator = {
       },
       bottomTab: {
         iconColor: color.white,
-        selectedIconColor: color.black,
-        iconHeight: 24,
-        iconWidth: 24,
+        selectedIconColor: color.success,
+        // iconHeight: 24,
+        // iconWidth: 24,
         textColor: color.white,
         selectedTextColor: color.white,
         iconInsets: {
-          top: 5,
+          // top: 5,
         },
       },
       bottomTabs: {
         currentTabIndex: 2,
-        backgroundColor: color.celticBlue,
+        backgroundColor: color.bottomBar,
         titleDisplayMode: 'alwaysShow',
       },
       statusBar: {

@@ -23,7 +23,7 @@ export interface Props {
   rightIcon?: ImageSourcePropType;
   leftIcon?: any;
   titleColor?: string;
-  componentId: any;
+  componentId: string;
   isScroll?: boolean;
   padding?: any;
   leftIconPress?: any;
@@ -67,7 +67,7 @@ const MySafeArea: React.FC<Props> = props => {
 
   const _viewRender = () => {
     return (
-      <View style={{flex: 1, paddingHorizontal: Utils.calculateWidth(20)}}>
+      <View style={{flex: 1, paddingHorizontal: Utils.calculateWidth(10)}}>
         {props.children}
       </View>
     );
