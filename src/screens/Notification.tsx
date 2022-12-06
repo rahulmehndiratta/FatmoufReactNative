@@ -31,7 +31,7 @@ const Notification: React.FC<Props> = (props: any) => {
             <Text>Rahul Sharma</Text>
             <Text>Rahul Sharma</Text>
           </View>
-          <Image source={require('../assets/images/')}/>
+          <Image source={require('@images/logo.png')}/>
         </View>
       </View>
     );
@@ -41,7 +41,7 @@ const Notification: React.FC<Props> = (props: any) => {
       componentId={props.componentId}
       title="Notifcation"
       isHideBack
-      rightIcon={require('../assets/images/setting-white.png')}
+      rightIcon={require('@images/setting-white.png')}
       isScroll>
       <FlatList
         renderItem={renderItem}

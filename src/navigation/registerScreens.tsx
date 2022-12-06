@@ -7,7 +7,7 @@ import ForgotPassword from 'screens/ForgotPassword';
 import SignUp from 'screens/SignUp';
 import Profile from 'screens/Home/Profile';
 import Competitive from 'screens/Home/Competitive';
-import TalkToTalk from 'screens/Home/TalkToTalk';
+import TalkYoTalk from 'screens/Home/TalkYoTalk';
 import Notification from 'screens/Notification';
 
 export const screenName = {
@@ -19,7 +19,7 @@ export const screenName = {
   SignUp: 'SignUp',
   Profile: 'Profile',
   Competitive: 'Competitive',
-  TalkToTalk: 'TalkToTalk',
+  TalkYoTalk: 'TalkYoTalk',
   Notification: 'Notification',
 };
 
@@ -30,6 +30,6 @@ export function registerScreens() {
   Navigation.registerComponent(screenName.SignUp, () => SignUp);
   Navigation.registerComponent(screenName.Profile, () => Profile);
   Navigation.registerComponent(screenName.Competitive, () => Competitive);
-  Navigation.registerComponent(screenName.TalkToTalk, () => TalkToTalk);
+  Navigation.registerComponent(screenName.TalkYoTalk, () => TalkYoTalk);
   Navigation.registerComponent(screenName.Notification, () => Notification);
 }
