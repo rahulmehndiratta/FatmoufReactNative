@@ -56,7 +56,7 @@ const MySafeArea: React.FC<Props> = props => {
   const _scrollRender = () => {
     return isScroll === true ? (
       <ScrollView scrollEnabled={isScroll} showsVerticalScrollIndicator={false}>
-        <View style={{flex: 1, paddingHorizontal: Utils.calculateWidth(20)}}>
+        <View style={{flex: 1, paddingHorizontal: Utils.calculateWidth(10)}}>
           {props.children}
         </View>
       </ScrollView>

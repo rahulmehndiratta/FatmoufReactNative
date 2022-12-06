@@ -5,6 +5,7 @@ import Splash from '../screens/Splash';
 import Login from 'screens/Login';
 import ForgotPassword from 'screens/ForgotPassword';
 import SignUp from 'screens/SignUp';
+import Notification from 'screens/Notification';
 
 export const screenName = {
   Splash: 'Splash',
@@ -13,6 +14,7 @@ export const screenName = {
   Login: 'Login',
   ForgotPassword: 'ForgotPassword',
   SignUp: 'SignUp',
+  Notification: 'Notification',
 };
 
 export function registerScreens() {
@@ -20,4 +22,5 @@ export function registerScreens() {
   Navigation.registerComponent(screenName.Login, () => Login);
   Navigation.registerComponent(screenName.ForgotPassword, () => ForgotPassword);
   Navigation.registerComponent(screenName.SignUp, () => SignUp);
+  Navigation.registerComponent(screenName.Notification, () => Notification);
 }
