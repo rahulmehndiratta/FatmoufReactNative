@@ -16,22 +16,27 @@ const Notification: React.FC<Props> = (props: any) => {
   const renderItem = ({item, index}) => {
     return (
       <View style={[styles.shadowBox, {margin: 5, padding: 5}]}>
-        <Text style={{alignSelf: 'flex-end'}}>15 Oct 2022</Text>
+        <Text
+          style={{
+            alignSelf: 'flex-end',
+            marginBottom: 5,
+            fontSize: fontSize.size_10,
+          }}>
+          15 Oct 2022
+        </Text>
         <View style={{flexDirection: 'row'}}>
-          <Image
-            source={require('@images/logo.png')}
-            style={{
-              height: Utils.calculateHeight(50),
-              width: Utils.calculateHeight(50),
-              borderRadius: Utils.calculateHeight(50) / 2,
-              backgroundColor: 'green',
-            }}
-          />
-          <View style={{}}>
-            <Text>Rahul Sharma</Text>
-            <Text>Rahul Sharma</Text>
+          <Image source={require('@images/logo.png')} style={styles.image} />
+          <View style={{flex: 1, marginLeft: 8, marginBottom: 10}}>
+            <Text style={styles.textTitle}>Rahul Sharma</Text>
+            <Text style={styles.textSubTitle}>
+              Rahul Sharmasdafdsfsdfsdfsdfsdfdfsdfdsfasdfsdfdsfsdfdsfsadfdsf
+            </Text>
           </View>
-          <Image source={require('../assets/images/')}/>
+          <Image
+            style={{height: 20, width: 20}}
+            resizeMode={'contain'}
+            source={require('../assets/images/arrow-right-black_fliped.png')}
+          />
         </View>
       </View>
     );
@@ -62,8 +67,10 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red',
   },
   image: {
-    width: Utils.calculateWidth(250),
-    height: Utils.calculateHeight(250),
+    height: Utils.calculateHeight(50),
+    width: Utils.calculateHeight(50),
+    borderRadius: Utils.calculateHeight(50) / 2,
+    backgroundColor: 'green',
   },
   textFieldContainer: {
     marginTop: Utils.calculateHeight(20),
@@ -86,17 +93,6 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     elevation: 5,
   },
-  socialLoginIcon: {
-    borderRadius: 50,
-
-    shadowColor: color.black,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 1,
-    shadowRadius: 10,
-    elevation: 5,
-    // marginLeft: Utils.calculateWidth(20),
-  },
+  textTitle: {fontSize: fontSize.size_14},
+  textSubTitle: {fontSize: fontSize.size_12},
 });
