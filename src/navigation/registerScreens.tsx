@@ -5,6 +5,9 @@ import Splash from '../screens/Splash';
 import Login from 'screens/Login';
 import ForgotPassword from 'screens/ForgotPassword';
 import SignUp from 'screens/SignUp';
+import Profile from 'screens/Home/Profile';
+import Competitive from 'screens/Home/Competitive';
+import TalkToTalk from 'screens/Home/TalkToTalk';
 
 export const screenName = {
   Splash: 'Splash',
@@ -13,6 +16,9 @@ export const screenName = {
   Login: 'Login',
   ForgotPassword: 'ForgotPassword',
   SignUp: 'SignUp',
+  Profile: 'Profile',
+  Competitive: 'Competitive',
+  TalkToTalk: 'TalkToTalk',
 };
 
 export function registerScreens() {
@@ -20,4 +26,7 @@ export function registerScreens() {
   Navigation.registerComponent(screenName.Login, () => Login);
   Navigation.registerComponent(screenName.ForgotPassword, () => ForgotPassword);
   Navigation.registerComponent(screenName.SignUp, () => SignUp);
+  Navigation.registerComponent(screenName.Profile, () => Profile);
+  Navigation.registerComponent(screenName.Competitive, () => Competitive);
+  Navigation.registerComponent(screenName.TalkToTalk, () => TalkToTalk);
 }
