@@ -1,4 +1,4 @@
-import {responsiveScreenFontSize} from 'react-native-responsive-dimensions';
+import { responsiveScreenFontSize } from 'react-native-responsive-dimensions';
 
 export const color = {
   black: '#000000',
@@ -23,20 +23,21 @@ export const color = {
 };
 
 export const fontFamily = {
-  Black: 'Montserrat-Black',
+  // Black: 'Montserrat-Black',
   BlackItalic: 'Montserrat-BlackItalic',
-  Bold: 'Montserrat-Bold',
-  BoldItalic: 'Montserrat-BoldItalic',
-  SemiBold: 'Montserrat-SemiBold',
-  SemiBoldItalic: 'Montserrat-SemiBoldItalic',
-  Italic: 'Montserrat-Italic',
-  Light: 'Montserrat-Light',
-  LightItalic: 'Montserrat-LightItalic',
-  Medium: 'Montserrat-Medium',
-  MediumItalic: 'Montserrat-MediumItalic',
-  Regular: 'Montserrat-Regular',
-  Thin: 'Montserrat-Thin',
-  ThinItalic: 'Montserrat-ThinItalic',
+  Bold: 'OpenSans-Bold',
+  BoldItalic: 'OpenSans-BoldItalic',
+  ExtraBold: 'OpenSans-ExtraBold',
+  SemiBold: 'OpenSans-SemiBold',
+  SemiBoldItalic: 'OpenSans-SemiBoldItalic',
+  Italic: 'OpenSans-Italic',
+  Light: 'OpenSans-Light',
+  LightItalic: 'OpenSans-LightItalic',
+  Medium: 'OpenSans-Medium',
+  MediumItalic: 'OpenSans-MediumItalic',
+  Regular: 'OpenSans-Regular',
+  // Thin: 'Montserrat-Thin',
+  // ThinItalic: 'Montserrat-ThinItalic',
 };
 
 export const fontWeight = {
