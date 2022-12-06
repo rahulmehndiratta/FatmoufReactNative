@@ -35,7 +35,7 @@ const Notification: React.FC<Props> = (props: any) => {
           <Image
             style={{height: 20, width: 20}}
             resizeMode={'contain'}
-            source={require('../assets/images/arrow-right-black_fliped.png')}
+            source={require('@images/arrow-right-black_fliped.png')}
           />
         </View>
       </View>
@@ -46,7 +46,7 @@ const Notification: React.FC<Props> = (props: any) => {
       componentId={props.componentId}
       title="Notifcation"
       isHideBack
-      rightIcon={require('../assets/images/setting-white.png')}
+      rightIcon={require('@images/setting-white.png')}
       isScroll>
       <FlatList
         renderItem={renderItem}
