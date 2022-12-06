@@ -26,17 +26,26 @@ const Notification: React.FC<Props> = (props: any) => {
         </Text>
         <View style={{flexDirection: 'row'}}>
           <Image source={require('@images/logo.png')} style={styles.image} />
+
           <View style={{flex: 1, marginLeft: 8, marginBottom: 10}}>
             <Text style={styles.textTitle}>Rahul Sharma</Text>
             <Text style={styles.textSubTitle}>
               Rahul Sharmasdafdsfsdfsdfsdfsdfdfsdfdsfasdfsdfdsfsdfdsfsadfdsf
             </Text>
           </View>
-          <Image
-            style={{height: 20, width: 20}}
-            resizeMode={'contain'}
-            source={require('@images/arrow-right-black_fliped.png')}
-          />
+          <Pressable
+            onPress={() => {
+              Navigator.setPush(
+                props.componentId,
+                screenName.CompetitiveDetail,
+              );
+            }}>
+            <Image
+              style={{height: 20, width: 20}}
+              resizeMode={'contain'}
+              source={require('@images/arrow-right-black_fliped.png')}
+            />
+          </Pressable>
         </View>
       </View>
     );

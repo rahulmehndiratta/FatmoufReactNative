@@ -1,4 +1,4 @@
-import { responsiveScreenFontSize } from 'react-native-responsive-dimensions';
+import {responsiveScreenFontSize} from 'react-native-responsive-dimensions';
 
 export const color = {
   black: '#000000',
@@ -19,6 +19,8 @@ export const color = {
   appBar: '#7a3798',
   select: '#8f52ad',
   bottomBar: '#5d449f',
+  boderColor: '#f2f2f2',
+  grayText: '#c8c8c8',
   // ...................END..........
 };
 
