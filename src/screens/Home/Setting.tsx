@@ -82,7 +82,17 @@ const Setting: React.FC<Props> = (props: any) => {
 
   const renderItem = ({item, index}) => {
     return (
-      <Pressable onPress={() => {}} style={{}}>
+      <Pressable
+        onPress={() => {
+          if (item?.id == 8) {
+          } else if (item?.id == 7) {
+            Navigator.setPush(props.componentId, screenName.WebViewPage, {
+              title: 'Privacy Policy',
+              url: 'https://www.google.com',
+            });
+          }
+        }}
+        style={{}}>
         <View
           style={{
             flexDirection: 'row',
