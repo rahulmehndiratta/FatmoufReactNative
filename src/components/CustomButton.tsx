@@ -18,6 +18,7 @@ export interface Props {
   marginBottom?: any;
   iconLeft?: ImageSourcePropType;
   width?: any;
+  height?: any;
 }
 
 const CustomButton: React.FC<Props> = props => {
@@ -29,6 +30,7 @@ const CustomButton: React.FC<Props> = props => {
     marginBottom,
     iconLeft,
     width,
+    height,
   } = props;
   return (
     <TouchableOpacity
@@ -40,6 +42,7 @@ const CustomButton: React.FC<Props> = props => {
           marginTop: marginTop ?? Utils.calculateHeight(20),
           marginBottom: marginBottom,
           width: width ?? '100%',
+          height: height ??Utils.calculateHeight(50)
         },
       ]}
       onPress={onPress}>
@@ -59,7 +62,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 20,
-    height: Utils.calculateHeight(50),
+    // height: Utils.calculateHeight(50),
   },
   tvTitle: {
     fontSize: fontSize.size_15,

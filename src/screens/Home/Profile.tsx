@@ -1,9 +1,11 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {NavigationComponentProps} from 'react-native-navigation';
 import MySafeArea from '@components/MySafeArea';
 import Divider from '@components/Divider';
 import {color, fontFamily, fontSize} from '@styles';
+import {Navigator} from '@Navigator';
+import {screenName} from '@screenName';
 
 export interface Props extends NavigationComponentProps {}
 const Profile: React.FC<Props> = props => {
@@ -117,7 +119,12 @@ const Profile: React.FC<Props> = props => {
           alignItems: 'center',
         }}>
         <View style={styles.shadowBox}>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              width: '100%',
+            }}>
             <Image
               source={require('@images/wallet.png')}
               style={{height: 20, width: 20, margin: 8}}
@@ -133,10 +140,15 @@ const Profile: React.FC<Props> = props => {
                 marginTop: -50,
                 backgroundColor: color.appBar,
               }}></Image>
-            <Image
-              source={require('@images/edit.png')}
-              style={{height: 20, width: 20, margin: 8}}
-            />
+            <Pressable
+              onPress={() => {
+                Navigator.setPush(props.componentId, screenName.UpdateProfile);
+              }}>
+              <Image
+                source={require('@images/edit.png')}
+                style={{height: 20, width: 20, margin: 8}}
+              />
+            </Pressable>
           </View>
           <Text style={[styles.textData, {fontFamily: fontFamily.Bold}]}>
             Rahul Sharma
@@ -173,9 +185,19 @@ const Profile: React.FC<Props> = props => {
         {renderRatingButton()}
       </View>
 
-      <View style={{}}>
-
-
+      <View style={styles.bottomView}>
+        <View style={styles.bottomSubView}>
+          <Text style={styles.bottomText}>Played Challange's:</Text>
+          <Text style={styles.bottomText}>40</Text>
+        </View>
+        <View style={styles.bottomSubView}>
+          <Text style={styles.bottomText}>Challange's Won:</Text>
+          <Text style={styles.bottomText}>3</Text>
+        </View>
+        <View style={styles.bottomSubView}>
+          <Text style={styles.bottomText}>Challange's Lost:</Text>
+          <Text style={styles.bottomText}>4</Text>
+        </View>
       </View>
     </MySafeArea>
   );
@@ -206,4 +228,18 @@ const styles = StyleSheet.create({
     color: color.black,
     margin: 3,
   },
+  bottomView: {
+    backgroundColor: color.appBar,
+    borderRadius: 5,
+    padding: 10,
+    width: '90%',
+    alignSelf: 'center',
+  },
+  bottomSubView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    padding: 5,
+  },
+  bottomText: {fontSize: fontSize.size_14, color: color.white},
 });

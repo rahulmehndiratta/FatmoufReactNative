@@ -11,6 +11,8 @@ import TalkYoTalk from 'screens/Home/TalkYoTalk';
 import Notification from 'screens/Home/Notification';
 import CompetitiveDetail from 'screens/Home/CompetitiveDetail';
 import Setting from 'screens/Home/Setting';
+import UpdateProfile from 'screens/Home/UpdateProfile';
+import WebViewPage from 'screens/Home/WebViewPage';
 export const screenName = {
   Splash: 'Splash',
   MyFlash: 'MyFlash',
@@ -24,6 +26,8 @@ export const screenName = {
   Notification: 'Notification',
   CompetitiveDetail: 'CompetitiveDetail',
   Setting: 'Setting',
+  UpdateProfile: 'UpdateProfile',
+  WebViewPage: 'WebViewPage',
 };
 
 export function registerScreens() {
@@ -40,4 +44,6 @@ export function registerScreens() {
     () => CompetitiveDetail,
   );
   Navigation.registerComponent(screenName.Setting, () => Setting);
+  Navigation.registerComponent(screenName.UpdateProfile, () => UpdateProfile);
+  Navigation.registerComponent(screenName.WebViewPage, () => WebViewPage);
 }
