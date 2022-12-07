@@ -31,6 +31,7 @@ export interface Props {
   centerIcon?: ImageSourcePropType;
   rightIconPress?: null | ((event: GestureResponderEvent) => void) | undefined;
   prevScreenName?: string;
+  paddingHorizontal?: any;
 }
 
 const MySafeArea: React.FC<Props> = props => {
@@ -51,12 +52,19 @@ const MySafeArea: React.FC<Props> = props => {
     sourceBg,
     centerIcon,
     prevScreenName,
+    paddingHorizontal,
   } = props;
 
   const _scrollRender = () => {
     return isScroll === true ? (
       <ScrollView scrollEnabled={isScroll} showsVerticalScrollIndicator={false}>
-        <View style={{flex: 1, paddingHorizontal: Utils.calculateWidth(10)}}>
+        <View
+          style={{
+            flex: 1,
+            paddingHorizontal: paddingHorizontal
+              ? paddingHorizontal
+              : Utils.calculateWidth(10),
+          }}>
           {props.children}
         </View>
       </ScrollView>
@@ -67,7 +75,13 @@ const MySafeArea: React.FC<Props> = props => {
 
   const _viewRender = () => {
     return (
-      <View style={{flex: 1, paddingHorizontal: Utils.calculateWidth(10)}}>
+      <View
+        style={{
+          flex: 1,
+          paddingHorizontal: paddingHorizontal
+            ? paddingHorizontal
+            : Utils.calculateWidth(10),
+        }}>
         {props.children}
       </View>
     );

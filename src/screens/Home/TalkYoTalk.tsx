@@ -15,7 +15,9 @@ const TalkYoTalk: React.FC<Props> = (props: any) => {
 
   const renderItem = ({item, index}) => {
     return (
-      <View style={[styles.shadowBox, {margin: 5, padding: 5}]}>
+      <Pressable
+        onPress={() => {}}
+        style={[styles.shadowBox, {margin: 5, padding: 5}]}>
         <View
           style={{
             flexDirection: 'row',
@@ -32,7 +34,7 @@ const TalkYoTalk: React.FC<Props> = (props: any) => {
             source={require('@images/menu-dots.png')}
           />
         </View>
-      </View>
+      </Pressable>
     );
   };
   return (
@@ -40,6 +42,9 @@ const TalkYoTalk: React.FC<Props> = (props: any) => {
       componentId={props.componentId}
       title="Talk Yo Talk"
       isHideBack
+      rightIconPress={() => {
+        Navigator.setPush(props.componentId, screenName.Setting);
+      }}
       rightIcon={require('@images/setting-white.png')}
       isScroll>
       <FlatList

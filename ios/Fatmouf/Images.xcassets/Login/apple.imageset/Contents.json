@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "white-logo-masked-circular.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -41,7 +41,7 @@ const Notification: React.FC<Props> = (props: any) => {
               );
             }}>
             <Image
-              style={{height: 20, width: 20}}
+              style={{height: 20, width: 20, tintColor: color.grayText}}
               resizeMode={'contain'}
               source={require('@images/arrow-right-black_fliped.png')}
             />

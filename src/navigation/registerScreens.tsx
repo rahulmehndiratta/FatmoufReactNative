@@ -10,7 +10,7 @@ import Competitive from 'screens/Home/Competitive';
 import TalkYoTalk from 'screens/Home/TalkYoTalk';
 import Notification from 'screens/Home/Notification';
 import CompetitiveDetail from 'screens/Home/CompetitiveDetail';
-
+import Setting from 'screens/Home/Setting';
 export const screenName = {
   Splash: 'Splash',
   MyFlash: 'MyFlash',
@@ -23,6 +23,7 @@ export const screenName = {
   TalkYoTalk: 'TalkYoTalk',
   Notification: 'Notification',
   CompetitiveDetail: 'CompetitiveDetail',
+  Setting: 'Setting',
 };
 
 export function registerScreens() {
@@ -38,4 +39,5 @@ export function registerScreens() {
     screenName.CompetitiveDetail,
     () => CompetitiveDetail,
   );
+  Navigation.registerComponent(screenName.Setting, () => Setting);
 }
