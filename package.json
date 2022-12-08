@@ -19,7 +19,9 @@
     "react-native-image-crop-picker": "^0.38.1",
     "react-native-image-slider-banner": "^1.0.3",
     "react-native-navigation": "^7.30.3",
-    "react-native-responsive-dimensions": "^3.1.1"
+    "react-native-ratings": "^8.1.0",
+    "react-native-responsive-dimensions": "^3.1.1",
+    "react-native-webview": "^11.25.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
