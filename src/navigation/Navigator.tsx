@@ -1,4 +1,7 @@
-import {Navigation, OptionsModalPresentationStyle} from 'react-native-navigation';
+import {
+  Navigation,
+  OptionsModalPresentationStyle,
+} from 'react-native-navigation';
 import {registerScreens, screenName} from '@screenName';
 import {color} from '@styles';
 import {LogBox} from 'react-native';
@@ -149,6 +152,17 @@ export const Navigator = {
         name: screenName,
         id: screenName,
         passProps: {propsData},
+        options: {
+          bottomTabs: {
+            visible: false,
+            drawBehind: true,
+          },
+          sideMenu: {
+            left: {
+              visible: false,
+            },
+          },
+        },
       },
     });
   },
@@ -210,7 +224,8 @@ export const Navigator = {
                 overlay: {
                   interceptTouchOutside: false, // this make touch events pass through the invisible parts of the overlay
                 },
-                modalPresentationStyle: OptionsModalPresentationStyle.overCurrentContext,
+                modalPresentationStyle:
+                  OptionsModalPresentationStyle.overCurrentContext,
                 // screenBackgroundColor: 'red',
 
                 layout: {

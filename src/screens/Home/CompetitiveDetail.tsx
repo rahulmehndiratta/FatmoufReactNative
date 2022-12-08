@@ -6,16 +6,19 @@ import {
   Pressable,
   Dimensions,
 } from 'react-native';
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import MySafeArea from '@components/MySafeArea';
 import {Utils} from '@Utils';
 import {color, fontFamily, fontSize} from '@styles';
 import Divider from '@components/Divider';
 import Carousel from 'react-native-snap-carousel';
+import {Navigator} from '@Navigator';
+import {screenName} from '@screenName';
+import ReViewModal from 'screens/Auth/reviewModal';
 const itemWidth = Dimensions.get('window').width;
 interface Props {}
 const CompetitiveDetail: React.FC<Props> = (props: any) => {
-  let _carousel = useRef<any>();
+  const [modalVisible, setModalVisible] = useState(false);
 
   const icon = (onPress: any, image: any) => {
     return (
@@ -33,7 +36,7 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
             color: color.black,
             fontSize: fontSize.size_12,
           }}>
-          <Text style={{alignSelf: 'flex-start', color: color.appBar}}>
+          <Text style={{alignSelf: 'flex-start', color: color.black}}>
             View Participate
           </Text>
         </Text>
@@ -169,10 +172,18 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
             width: '60%',
             flexWrap: 'wrap',
           }}>
-          {icon(() => {}, require('@images/add-participant.png'))}
-          {icon(() => {}, require('@images/add-participant.png'))}
+          {icon(() => {
+            Navigator.setPush(props.componentId, screenName.ViewParticipate);
+          }, require('@images/add-participant.png'))}
+          {icon(() => {
+            setModalVisible(true);
+          }, require('@images/add-participant.png'))}
           {icon(() => {}, require('@images/add-participant.png'))}
         </View>
+        <ReViewModal
+          visible={modalVisible}
+          invisible={() => setModalVisible(false)}
+        />
       </View>
     </MySafeArea>
   );

@@ -21,6 +21,10 @@ export const color = {
   bottomBar: '#5d449f',
   boderColor: '#f2f2f2',
   grayText: '#c8c8c8',
+  red: '#ff2c55',
+  green: '#34c85a',
+  filter: '#cc99cc',
+  filterView: '#e6e5e9',
   // ...................END..........
 };
 

@@ -13,6 +13,8 @@ import CompetitiveDetail from 'screens/Home/CompetitiveDetail';
 import Setting from 'screens/Home/Setting';
 import UpdateProfile from 'screens/Home/UpdateProfile';
 import WebViewPage from 'screens/Home/WebViewPage';
+import ViewParticipate from 'screens/Home/ViewParticipate';
+
 export const screenName = {
   Splash: 'Splash',
   MyFlash: 'MyFlash',
@@ -28,6 +30,7 @@ export const screenName = {
   Setting: 'Setting',
   UpdateProfile: 'UpdateProfile',
   WebViewPage: 'WebViewPage',
+  ViewParticipate: 'ViewParticipate',
 };
 
 export function registerScreens() {
@@ -46,4 +49,8 @@ export function registerScreens() {
   Navigation.registerComponent(screenName.Setting, () => Setting);
   Navigation.registerComponent(screenName.UpdateProfile, () => UpdateProfile);
   Navigation.registerComponent(screenName.WebViewPage, () => WebViewPage);
+  Navigation.registerComponent(
+    screenName.ViewParticipate,
+    () => ViewParticipate,
+  );
 }
