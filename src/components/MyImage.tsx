@@ -51,9 +51,8 @@ export default MyImage
 
 const styles = StyleSheet.create({
     tvTitle: {
-        fontSize: fontSize.size_10,
-        fontFamily: fontFamily.RobotoMedium,
-        marginTop: Utils.calculateHeight(5),
+        fontSize: fontSize.size_12,
+        fontFamily: fontFamily.Medium,
     },
     ivImage: {
         alignSelf: 'center'

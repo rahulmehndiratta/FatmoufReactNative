@@ -1,4 +1,4 @@
-import { FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import MySafeArea from '@components/MySafeArea'
 import { NavigationComponentProps } from 'react-native-navigation'
@@ -7,7 +7,8 @@ import CustomButton from '@components/CustomButton'
 import { Utils } from '@Utils'
 import MySliderBox from '@components/MyImageSlider'
 import MyImageSlider from '@components/MyImageSlider'
-
+import CompetitiveItems from '@components/CompetitiveItems'
+const screenWidth = Math.round(Dimensions.get('window').width);
 export interface Props extends NavigationComponentProps {
 
 }
@@ -55,7 +56,11 @@ const Competitive: React.FC<Props> = (props) => {
         <Image source={require('@images/filter.png')} />
       </View>
 
-      <MyImageSlider/>
+      <FlatList
+        data={data}
+        renderItem={({item,index }) => <CompetitiveItems item={item} index={index} />}
+      />
+      {/* <MyImageSlider/> */}
     </MySafeArea>
   )
 }

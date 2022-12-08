@@ -309,7 +309,6 @@ export const Navigator = {
         },
       },
       bottomTabs: {
-        currentTabIndex: 2,
         backgroundColor: color.bottomBar,
         titleDisplayMode: 'alwaysShow',
       },

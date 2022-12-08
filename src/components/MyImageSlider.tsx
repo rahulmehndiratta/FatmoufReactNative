@@ -3,13 +3,14 @@ import React from 'react'
 import { ImageSlider } from "react-native-image-slider-banner";
 import FastImage from 'react-native-fast-image';
 import { DataType } from 'react-native-image-slider-banner/src';
+import { Utils } from '@Utils';
 export interface Props {
     onClick?: (item: DataType, index: number) => void;
     onItemChanged?: (itemData: DataType) => void;
 }
 const MyImageSlider: React.FC<Props> = (props) => {
     const { onClick, onItemChanged } = props
-   
+
     return (
         <ImageSlider
             data={[
@@ -19,10 +20,35 @@ const MyImageSlider: React.FC<Props> = (props) => {
             ]}
             onItemChanged={(item) => console.log("item", item)}
             // caroselImageStyle={{ resizeMode: 'cover' }}
-            autoPlay={true}
+            autoPlay={false}
             onClick={onClick}
-            onItemChanged={onItemChanged}
-            closeIconColor="#fff"
+            // onItemChanged={onItemChanged}
+            caroselImageContainerStyle={{
+                borderRadius: 10,
+                backgroundColor: 'green',
+                height: 200,
+                marginTop: 10,
+                // width:150,
+
+            }}
+            // previewImageContainerStyle={{
+            //     borderRadius: 10,
+            //     backgroundColor: 'red',
+            //     height: 250,
+            //     // width:200,
+            //     marginTop: 20,
+            //     marginHorizontal: 20
+            // }}
+            // previewImageStyle={{
+            //     borderRadius: 10,
+            //     resizeMode: 'cover',
+            // }}
+            caroselImageStyle={{
+                borderRadius: 10,
+                resizeMode: 'cover',
+
+
+            }}
         />
 
     )
