@@ -17,7 +17,7 @@ const ViewParticipate: React.FC<Props> = (props: any) => {
           style={{
             flex: 1,
             marginLeft: Utils.calculateWidth(10),
-            //   backgroundColor: 'red',
+            // backgroundColor: 'red',
 
             alignItems: 'flex-start',
           }}>
@@ -40,20 +40,28 @@ const ViewParticipate: React.FC<Props> = (props: any) => {
             <Text>Chandigarh, Chandigarh</Text>
           </View>
         </View>
-        <Pressable
+        <View
           style={{
-            alignSelf: 'flex-end',
+            // flexDirection: 'row',
+            paddingVertical: 5,
+            paddingHorizontal: 10,
+            borderColor: color.appBar,
+            borderWidth: 1,
+            borderRadius: 8,
+            // width: '100%',
+            // marginTop: Utils.calculateHeight(20),
+            justifyContent: 'space-between',
           }}>
-          <Image
-            source={require('@images/support.png')}
+          <Text style={{color: color.appBar}}>Middle Man</Text>
+          {/* <Image
+            source={require('@images/middle_man.jpeg')}
             resizeMode={'contain'}
             style={{
               width: Utils.calculateWidth(25),
               height: Utils.calculateHeight(25),
-              tintColor: color.appBar,
             }}
-          />
-        </Pressable>
+          /> */}
+        </View>
       </View>
     );
   };

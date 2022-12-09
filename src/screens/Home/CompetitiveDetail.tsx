@@ -15,6 +15,8 @@ import Carousel from 'react-native-snap-carousel';
 import {Navigator} from '@Navigator';
 import {screenName} from '@screenName';
 import ReViewModal from 'screens/Auth/reviewModal';
+import {ImageSlider} from 'react-native-image-slider-banner';
+import MyImageSlider from '@components/MyImageSlider';
 const itemWidth = Dimensions.get('window').width;
 interface Props {}
 const CompetitiveDetail: React.FC<Props> = (props: any) => {
@@ -103,17 +105,8 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
         <Text style={{alignSelf: 'flex-start', color: color.appBar}}>
           Entry Fees:200
         </Text>
-        <View style={{height: 200, width: 350, backgroundColor: 'red'}}></View>
+        <View>{/* <MyImageSlider /> */}</View>
 
-        {/* <Carousel
-          ref={c => {
-            console.log(c);
-          }}
-          data={[{}]}
-          renderItem={_renderItem}
-          sliderWidth={500}
-          itemWidth={itemWidth}
-        /> */}
         <Text style={[styles.dateStr, {alignSelf: 'flex-start'}]}>
           Start on 15 oct 2022 End on 17 Nov 2022
         </Text>
@@ -180,6 +173,7 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
           }, require('@images/add-participant.png'))}
           {icon(() => {}, require('@images/add-participant.png'))}
         </View>
+
         <ReViewModal
           visible={modalVisible}
           invisible={() => setModalVisible(false)}
