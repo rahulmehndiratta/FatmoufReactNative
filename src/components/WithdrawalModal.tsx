@@ -36,28 +36,28 @@ const WithdrawalModal: React.FC<Props> = (props: any) => {
             onChangeText={(text: any) => setValue(text)}
             placeholder={'Amount'}
             keyBoardType={'defalut'}
-            marginTop={Utils.calculateHeight(0)}
+            marginTop={Utils.calculateHeight(10)}
           />
           <CustomTextInput
             value={value}
             onChangeText={(text: any) => setValue(text)}
             placeholder={'Account Number'}
             keyBoardType={'defalut'}
-            marginTop={Utils.calculateHeight(0)}
+            marginTop={Utils.calculateHeight(10)}
           />
           <CustomTextInput
             value={value}
             onChangeText={(text: any) => setValue(text)}
             placeholder={'Confirm Account Number'}
             keyBoardType={'defalut'}
-            marginTop={Utils.calculateHeight(0)}
+            marginTop={Utils.calculateHeight(10)}
           />
           <CustomTextInput
             value={value}
             onChangeText={(text: any) => setValue(text)}
             placeholder={'Routing Number'}
             keyBoardType={'defalut'}
-            marginTop={Utils.calculateHeight(0)}
+            marginTop={Utils.calculateHeight(10)}
           />
 
           <View

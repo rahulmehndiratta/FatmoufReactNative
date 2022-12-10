@@ -8,9 +8,9 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import { Utils } from '@Utils';
-import { color, fontFamily, fontSize } from '@styles';
-import { Navigator } from '@Navigator';
+import {Utils} from '@Utils';
+import {color, fontFamily, fontSize} from '@styles';
+import {Navigator} from '@Navigator';
 
 export interface Props {
   backgroundColor?: string;
@@ -24,6 +24,7 @@ export interface Props {
   componentId: any;
   centerIcon?: ImageSourcePropType;
   prevScreenName?: any;
+  tintColor?: any;
 }
 const AppBar: React.FC<Props> = props => {
   let {
@@ -38,6 +39,7 @@ const AppBar: React.FC<Props> = props => {
     rightIconPress,
     centerIcon,
     prevScreenName,
+    tintColor,
   } = props;
   return (
     <View
@@ -58,21 +60,21 @@ const AppBar: React.FC<Props> = props => {
         }}>
         {!isHideBack && (
           <Pressable
-            style={{ padding: 5, flexDirection: 'row' }}
+            style={{padding: 5, flexDirection: 'row'}}
             onPress={() => {
               leftIcon ? leftIconPress() : Navigator.setPop(componentId);
             }}>
             <Image
               resizeMode="contain"
               source={leftIcon ?? require('@images/back_arrow.png')}
-              style={{ height: 20, width: 20 }}
+              style={{height: 20, width: 20}}
             />
             <Text style={styles.tvBackTitle}>{prevScreenName ?? 'Back'}</Text>
           </Pressable>
         )}
       </View>
 
-      <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{flex: 8, justifyContent: 'center', alignItems: 'center'}}>
         {centerIcon && (
           <Image
             resizeMode="cover"
@@ -101,11 +103,11 @@ const AppBar: React.FC<Props> = props => {
           alignItems: 'flex-end',
         }}>
         {rightIcon && (
-          <Pressable style={{ padding: 5 }} onPress={rightIconPress}>
+          <Pressable style={{padding: 5}} onPress={rightIconPress}>
             <Image
               resizeMode="contain"
               source={rightIcon}
-              style={{ height: 20, width: 20 }}
+              style={{height: 20, width: 20, tintColor: tintColor}}
             />
           </Pressable>
         )}
@@ -132,6 +134,6 @@ const styles = StyleSheet.create({
   tvBackTitle: {
     fontFamily: fontFamily.Medium,
     fontSize: fontSize.size_14,
-    color: color.white
-  }
+    color: color.white,
+  },
 });
