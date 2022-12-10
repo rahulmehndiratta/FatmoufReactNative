@@ -75,7 +75,8 @@ const Profile: React.FC<Props> = props => {
 
   const renderRatingButton = () => {
     return (
-      <View
+      <Pressable
+      onPress={()=>Navigator.setPush(props.componentId, screenName.Comments)}
         style={{
           height: 60,
           width: 70,
@@ -101,7 +102,7 @@ const Profile: React.FC<Props> = props => {
           }}>
           Rating
         </Text>
-      </View>
+      </Pressable>
     );
   };
   return (
