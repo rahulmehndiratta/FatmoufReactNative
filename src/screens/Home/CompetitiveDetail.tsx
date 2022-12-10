@@ -56,7 +56,9 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
         <Text style={styles.dateStr}>15 oct 2022</Text>
         <View style={styles.headerContainer}>
           <Image
-            source={require('@images/add-participant.png')}
+            source={{
+              uri: 'https://images.unsplash.com/photo-1568700942090-19dc36fab0c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+            }}
             resizeMode={'contain'}
             style={styles.profileImage}
           />

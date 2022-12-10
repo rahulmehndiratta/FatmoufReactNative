@@ -1,4 +1,12 @@
-import {Dimensions, FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import React, {useState} from 'react';
 import MySafeArea from '@components/MySafeArea';
 import {NavigationComponentProps} from 'react-native-navigation';
@@ -8,7 +16,9 @@ import {Utils} from '@Utils';
 import MySliderBox from '@components/MyImageSlider';
 import MyImageSlider from '@components/MyImageSlider';
 import Filter from '@components/filter';
-import CompetitiveItems from '@components/CompetitiveItems'
+import CompetitiveItems from '@components/CompetitiveItems';
+import {Navigator} from '@Navigator';
+import {screenName} from '@screenName';
 const screenWidth = Math.round(Dimensions.get('window').width);
 export interface Props extends NavigationComponentProps {}
 const Competitive: React.FC<Props> = props => {
@@ -42,7 +52,10 @@ const Competitive: React.FC<Props> = props => {
       componentId={props.componentId}
       isHideBack
       title="Competitive"
-      rightIcon={require('@images/setting-white.png')}>
+      rightIcon={require('@images/setting-white.png')}
+      rightIconPress={() => {
+        Navigator.setPush(props.componentId, screenName.Setting);
+      }}>
       <View style={styles.rowContainer}>
         <FlatList
           data={data}
@@ -61,7 +74,9 @@ const Competitive: React.FC<Props> = props => {
 
       <FlatList
         data={data}
-        renderItem={({item,index }) => <CompetitiveItems item={item} index={index} />}
+        renderItem={({item, index}) => (
+          <CompetitiveItems item={item} index={index} />
+        )}
       />
       {/* <MyImageSlider/> */}
       <Filter
