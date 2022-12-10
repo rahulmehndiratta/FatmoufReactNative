@@ -1,21 +1,19 @@
-import {
-  Dimensions,
-  FlatList,
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import React, {useState} from 'react';
+import { Dimensions, FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
 import MySafeArea from '@components/MySafeArea';
-import {NavigationComponentProps} from 'react-native-navigation';
-import {color, fontFamily, fontSize} from '@styles';
-import {Utils} from '@Utils';
+import { NavigationComponentProps } from 'react-native-navigation';
+import { color, fontFamily, fontSize } from '@styles';
+import CustomButton from '@components/CustomButton';
+import { Utils } from '@Utils';
+import MySliderBox from '@components/MyImageSlider';
+import MyImageSlider from '@components/MyImageSlider';
 import Filter from '@components/filter';
-import CompetitiveItems from '@components/CompetitiveItems';
-
-export interface Props extends NavigationComponentProps {}
+import CompetitiveItems from '@components/CompetitiveItems'
+import ClickableImage from '@components/ClickableImage';
+import { Navigator } from '@Navigator';
+import { screenName } from '@screenName';
+const screenWidth = Math.round(Dimensions.get('window').width);
+export interface Props extends NavigationComponentProps { }
 const Competitive: React.FC<Props> = props => {
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -36,7 +34,7 @@ const Competitive: React.FC<Props> = props => {
   const _renderItems = (item: any, index: number) => {
     return (
       <Pressable
-        style={[styles.btnContainer, {marginStart: index === 0 ? 0 : 10}]}>
+        style={[styles.btnContainer, { marginStart: index === 0 ? 0 : 10 }]}>
         <Text style={styles.tvBtnTitle}>{item?.name}</Text>
       </Pressable>
     );
@@ -54,7 +52,7 @@ const Competitive: React.FC<Props> = props => {
           showsHorizontalScrollIndicator={false}
           horizontal={true}
           // keyExtractor={({item:any}) => item?.id}
-          renderItem={({item, index}) => _renderItems(item, index)}
+          renderItem={({ item, index }) => _renderItems(item, index)}
         />
         <Pressable
           onPress={() => {
@@ -66,17 +64,23 @@ const Competitive: React.FC<Props> = props => {
 
       <FlatList
         data={data}
-        renderItem={({item, index}) => (
-          <CompetitiveItems item={item} index={index} />
-        )}
+        renderItem={({ item, index }) => <CompetitiveItems item={item} index={index} />}
       />
       {/* <MyImageSlider/> */}
       <Filter
         visible={modalVisible}
         inVisible={() => setModalVisible(false)}
 
-        // imageDataSend={imagefromfeedback}
-        // status={isChecked ? '1' : '0'}
+      // imageDataSend={imagefromfeedback}
+      // status={isChecked ? '1' : '0'}
+      />
+
+      <ClickableImage
+        source={require('@images/add-purple.png')}
+        style={styles.addIcon}
+        containerStyle={styles.addIconContainer}
+        resizeMode='contain'
+        onPress={() => Navigator.setPush(props.componentId, screenName.AddChallenge)}
       />
     </MySafeArea>
   );
@@ -88,6 +92,8 @@ const styles = StyleSheet.create({
   rowContainer: {
     flexDirection: 'row',
     marginTop: 10,
+    // backgroundColor:'green',
+    marginBottom: Utils.calculateHeight(15)
   },
   btnContainer: {
     backgroundColor: color.appBar,
@@ -102,4 +108,13 @@ const styles = StyleSheet.create({
     fontFamily: fontFamily.Medium,
     fontSize: fontSize.size_14,
   },
+  addIconContainer: { 
+    position: 'absolute', 
+    bottom: 20, 
+    right: 5 
+  },
+    addIcon:{ 
+      height: Utils.calculateHeight(50), 
+      width: Utils.calculateHeight(50), 
+    }
 });

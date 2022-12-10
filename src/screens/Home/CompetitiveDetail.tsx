@@ -56,7 +56,9 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
         <Text style={styles.dateStr}>15 oct 2022</Text>
         <View style={styles.headerContainer}>
           <Image
-            source={require('@images/add-participant.png')}
+            source={{
+              uri: 'https://images.unsplash.com/photo-1568700942090-19dc36fab0c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+            }}
             resizeMode={'contain'}
             style={styles.profileImage}
           />
@@ -105,7 +107,7 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
         <Text style={{alignSelf: 'flex-start', color: color.appBar}}>
           Entry Fees:200
         </Text>
-        <View>{/* <MyImageSlider /> */}</View>
+        <View style={{height:200}}><MyImageSlider /></View>
 
         <Text style={[styles.dateStr, {alignSelf: 'flex-start'}]}>
           Start on 15 oct 2022 End on 17 Nov 2022

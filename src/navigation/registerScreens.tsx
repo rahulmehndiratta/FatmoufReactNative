@@ -14,6 +14,7 @@ import Setting from 'screens/Home/Setting';
 import UpdateProfile from 'screens/Home/UpdateProfile';
 import WebViewPage from 'screens/Home/WebViewPage';
 import ViewParticipate from 'screens/Home/ViewParticipate';
+import AddChallenge from 'screens/Home/AddChallenge'
 
 export const screenName = {
   Splash: 'Splash',
@@ -31,6 +32,7 @@ export const screenName = {
   UpdateProfile: 'UpdateProfile',
   WebViewPage: 'WebViewPage',
   ViewParticipate: 'ViewParticipate',
+  AddChallenge:'AddChallenge'
 };
 
 export function registerScreens() {
@@ -52,5 +54,9 @@ export function registerScreens() {
   Navigation.registerComponent(
     screenName.ViewParticipate,
     () => ViewParticipate,
+  ); 
+  Navigation.registerComponent(
+    screenName.AddChallenge,
+    () => AddChallenge,
   );
 }

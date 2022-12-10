@@ -28,7 +28,7 @@ const MyImageSlider: React.FC<Props> = (props) => {
                 backgroundColor: 'green',
                 height: 200,
                 marginTop: 10,
-                // width:150,
+                //  width:375,
 
             }}
             // previewImageContainerStyle={{
