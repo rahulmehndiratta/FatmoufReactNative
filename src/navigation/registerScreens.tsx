@@ -14,7 +14,10 @@ import Setting from 'screens/Home/Setting';
 import UpdateProfile from 'screens/Home/UpdateProfile';
 import WebViewPage from 'screens/Home/WebViewPage';
 import ViewParticipate from 'screens/Home/ViewParticipate';
-import AddChallenge from 'screens/Home/AddChallenge'
+import AddChallenge from 'screens/Home/AddChallenge';
+import Chat from 'screens/Home/Chat';
+import JoinGroup from '../screens/Home/JoinGroup';
+import GroupDetails from 'screens/Home/GroupDetails'
 
 export const screenName = {
   Splash: 'Splash',
@@ -32,7 +35,10 @@ export const screenName = {
   UpdateProfile: 'UpdateProfile',
   WebViewPage: 'WebViewPage',
   ViewParticipate: 'ViewParticipate',
-  AddChallenge:'AddChallenge'
+  AddChallenge: 'AddChallenge',
+  Chat: 'Chat',
+  JoinGroup: 'JoinGroup',
+  GroupDetails:'GroupDetails'
 };
 
 export function registerScreens() {
@@ -54,9 +60,9 @@ export function registerScreens() {
   Navigation.registerComponent(
     screenName.ViewParticipate,
     () => ViewParticipate,
-  ); 
-  Navigation.registerComponent(
-    screenName.AddChallenge,
-    () => AddChallenge,
   );
+  Navigation.registerComponent(screenName.AddChallenge, () => AddChallenge);
+  Navigation.registerComponent(screenName.Chat, () => Chat);
+  Navigation.registerComponent(screenName.JoinGroup, () => JoinGroup);
+  Navigation.registerComponent(screenName.GroupDetails, () => GroupDetails);
 }

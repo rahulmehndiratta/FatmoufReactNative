@@ -9,10 +9,10 @@ import {
   Text,
   View,
 } from 'react-native';
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import AppBar from '@components/AppBar';
-import {color, fontSize} from '@styles';
-import {Utils} from '@Utils';
+import { color, fontSize } from '@styles';
+import { Utils } from '@Utils';
 export interface Props {
   children?: React.ReactNode;
   isHideAppBar?: boolean;
@@ -23,7 +23,7 @@ export interface Props {
   rightIcon?: ImageSourcePropType;
   leftIcon?: any;
   titleColor?: string;
-  componentId: string;
+  componentId: any;
   isScroll?: boolean;
   padding?: any;
   leftIconPress?: any;
@@ -61,9 +61,8 @@ const MySafeArea: React.FC<Props> = props => {
         <View
           style={{
             flex: 1,
-            paddingHorizontal: paddingHorizontal
-              ? paddingHorizontal
-              : Utils.calculateWidth(10),
+            paddingHorizontal:
+              paddingHorizontal ?? Utils.calculateWidth(10),
           }}>
           {props.children}
         </View>
@@ -79,8 +78,7 @@ const MySafeArea: React.FC<Props> = props => {
         style={{
           flex: 1,
           paddingHorizontal: paddingHorizontal
-            ? paddingHorizontal
-            : Utils.calculateWidth(10),
+            ?? Utils.calculateWidth(10),
         }}>
         {props.children}
       </View>

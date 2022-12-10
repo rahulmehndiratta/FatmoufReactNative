@@ -1,14 +1,11 @@
-import { FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import React, { useState } from 'react';
-import MySafeArea from '@components/MySafeArea';
-import { Utils } from '@Utils';
-import TextFiled from '@components/TextFiled';
-import MyTextInput from '@components/MyTextInput';
-import ClickableText from '@components/ClickableText';
-import { Navigator } from '@Navigator';
-import CustomButton from '@components/CustomButton';
-import { color, fontSize } from '@styles';
-import { screenName } from '@screenName';
+import { FlatList, Image, Pressable, StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import MySafeArea from "@components/MySafeArea";
+import { Utils } from "@Utils";
+import { Navigator } from "@Navigator";
+import { color, fontSize } from "@styles";
+import { screenName } from "@screenName";
+
 interface Props { }
 const TalkYoTalk: React.FC<Props> = (props: any) => {
   const [email, setEmail] = useState('');
@@ -16,7 +13,9 @@ const TalkYoTalk: React.FC<Props> = (props: any) => {
   const renderItem = ({ item, index }) => {
     return (
       <Pressable
-        onPress={() => { }}
+        onPress={() => {
+          Navigator.setPush(props.componentId, screenName.Chat, { name: 'Rohit Shakywar' })
+        }}
         style={[styles.shadowBox, { margin: 5, padding: 5 }]}>
         <View
           style={{

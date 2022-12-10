@@ -24,7 +24,6 @@ export interface Props {
   componentId: any;
   centerIcon?: ImageSourcePropType;
   prevScreenName?: any;
-  backTitle?: any;
 }
 const AppBar: React.FC<Props> = props => {
   let {
@@ -39,7 +38,6 @@ const AppBar: React.FC<Props> = props => {
     rightIconPress,
     centerIcon,
     prevScreenName,
-    backTitle
   } = props;
   return (
     <View
@@ -69,11 +67,8 @@ const AppBar: React.FC<Props> = props => {
               source={leftIcon ?? require('@images/back_arrow.png')}
               style={{ height: 20, width: 20 }}
             />
-            <Text style={styles.tvBackTitle}>{backTitle ?? 'Back'}</Text>
+            <Text style={styles.tvBackTitle}>{prevScreenName ?? 'Back'}</Text>
           </Pressable>
-        )}
-        {prevScreenName && (
-          <Text style={styles.screenName}>{prevScreenName}</Text>
         )}
       </View>
 
