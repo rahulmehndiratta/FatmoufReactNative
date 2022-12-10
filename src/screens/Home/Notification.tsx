@@ -56,7 +56,10 @@ const Notification: React.FC<Props> = (props: any) => {
       title="Notifcation"
       isHideBack
       rightIcon={require('@images/setting-white.png')}
-      isScroll>
+      isScroll
+      rightIconPress={() => {
+        Navigator.setPush(props.componentId, screenName.Setting);
+      }}>
       <FlatList
         renderItem={renderItem}
         data={[{id: 1}, {id: 2}, {id: 3}]}

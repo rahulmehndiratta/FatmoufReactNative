@@ -110,7 +110,10 @@ const Profile: React.FC<Props> = props => {
       rightIcon={require('@images/setting-white.png')}
       padding={0}
       paddingHorizontal={0}
-      isHideBack>
+      isHideBack
+      rightIconPress={() => {
+        Navigator.setPush(props.componentId, screenName.Setting);
+      }}>
       <View
         style={{
           backgroundColor: color.appBar,

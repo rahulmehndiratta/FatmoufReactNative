@@ -128,7 +128,11 @@ const Setting: React.FC<Props> = (props: any) => {
     );
   };
   return (
-    <MySafeArea componentId={props.componentId} title="Setting" isScroll>
+    <MySafeArea
+      componentId={props.componentId}
+      title="Setting"
+      isScroll
+      prevScreenName="Back">
       <SectionList
         sections={data}
         renderItem={renderItem}
