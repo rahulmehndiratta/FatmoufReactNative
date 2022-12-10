@@ -105,7 +105,7 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
         <Text style={{alignSelf: 'flex-start', color: color.appBar}}>
           Entry Fees:200
         </Text>
-        <View>{/* <MyImageSlider /> */}</View>
+        <View style={{height:200}}><MyImageSlider /></View>
 
         <Text style={[styles.dateStr, {alignSelf: 'flex-start'}]}>
           Start on 15 oct 2022 End on 17 Nov 2022
