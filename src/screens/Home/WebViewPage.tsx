@@ -1,20 +1,23 @@
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import MySafeArea from '@components/MySafeArea';
-import {Utils} from '@Utils';
-import {WebView} from 'react-native-webview';
-import {color, fontSize} from '@styles';
-import {screenName} from '@screenName';
-interface Props {}
+import { Utils } from '@Utils';
+import { WebView } from 'react-native-webview';
+import { color, fontSize } from '@styles';
+import { screenName } from '@screenName';
+interface Props { }
 const WebViewPage: React.FC<Props> = (props: any) => {
   const [email, setEmail] = useState('');
   useEffect(() => {
     console.log('props', props);
   }, [props]);
+
+
+
   return (
     <WebView
-      source={{uri: props.propsData?.url ?? 'https://www.google.com'}}
-      style={{marginTop: 20}}
+      source={{ uri: props.propsData?.url ?? 'https://www.google.com' }}
+      style={{ marginTop: 20 }}
     />
   );
 };

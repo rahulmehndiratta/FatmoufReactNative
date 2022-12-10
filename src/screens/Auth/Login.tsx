@@ -1,15 +1,15 @@
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
 import MySafeArea from '@components/MySafeArea';
-import {Utils} from '@Utils';
+import { Utils } from '@Utils';
 import TextFiled from '@components/TextFiled';
 import MyTextInput from '@components/MyTextInput';
 import ClickableText from '@components/ClickableText';
-import {Navigator} from '@Navigator';
+import { Navigator } from '@Navigator';
 import CustomButton from '@components/CustomButton';
-import {color, fontSize} from '@styles';
-import {screenName} from '@screenName';
-interface Props {}
+import { color, fontSize } from '@styles';
+import { screenName } from '@screenName';
+interface Props { }
 const Login: React.FC<Props> = (props: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -66,7 +66,7 @@ const Login: React.FC<Props> = (props: any) => {
           textDecoration={'none'}
           marginTop={Utils.calculateHeight(8)}
         />
-        <CustomButton onPress={() => {}} title="Login" width={'80%'} />
+        <CustomButton onPress={() => { }} title="Login" width={'80%'} />
       </View>
       <View
         style={{

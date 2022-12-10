@@ -1,9 +1,9 @@
-import {Modal, Pressable, StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
+import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
 import Divider from './Divider';
 import CustomButton from './CustomButton';
-import {Utils} from '@Utils';
-import {color, fontFamily} from '@styles';
+import { Utils } from '@Utils';
+import { color, fontFamily } from '@styles';
 import ImageCropPicker from 'react-native-image-crop-picker';
 interface Props {
   modalShow?: boolean;
@@ -11,7 +11,7 @@ interface Props {
   imageItem?: any;
 }
 const ModalView: React.FC<Props> = (props: any) => {
-  const {modalShow, setModalShow, imageItem} = props;
+  const { modalShow, setModalShow, imageItem } = props;
 
   const [imageData, setImageData] = useState([]);
   const onSelectImage = (image: any) => {
@@ -42,12 +42,12 @@ const ModalView: React.FC<Props> = (props: any) => {
 
   const takePhotoFromCamera = () => {
     ImageCropPicker.openCamera({
-      width: 300,
-      height: 400,
+      // width: 300,
+      // height: 400,
       cropping: true,
     }).then(image => {
       console.log('cam chala', image);
-
+      setModalShow(false);
       onSelectImage(image);
     });
   };
@@ -55,8 +55,8 @@ const ModalView: React.FC<Props> = (props: any) => {
   const choosePhotoFromLibrary = () => {
     ImageCropPicker.openPicker({
       //   multiple: true,
-      width: 300,
-      height: 400,
+      // width: 300,
+      // height: 400,
       cropping: true,
     }).then(image => {
       //   let arr: any = [];
@@ -79,7 +79,7 @@ const ModalView: React.FC<Props> = (props: any) => {
           <Text style={styles.modalHeadingText}>Select Image</Text>
           <Divider borderStyle={'solid'} borderColor={'#00000029'} />
           <Pressable
-            style={{marginTop: Utils.calculateHeight(20)}}
+            style={{ marginTop: Utils.calculateHeight(20) }}
             onPress={() => {
               takePhotoFromCamera();
               //   setModalShow(false);
@@ -87,7 +87,7 @@ const ModalView: React.FC<Props> = (props: any) => {
             <Text style={styles.cancelTextStyle}>Take Photo..</Text>
           </Pressable>
           <Pressable
-            style={[{marginVertical: Utils.calculateHeight(15)}]}
+            style={[{ marginVertical: Utils.calculateHeight(15) }]}
             onPress={() => {
               choosePhotoFromLibrary();
             }}>
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     backgroundColor: 'white',
-    paddingTop: Utils.calculateHeight(15),
+    paddingVertical: Utils.calculateHeight(15),
     borderRadius: 10,
     width: '85%',
     // alignItems: 'center',

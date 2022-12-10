@@ -8,9 +8,9 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {Utils} from '@Utils';
-import {color, fontFamily, fontSize} from '@styles';
-import {Navigator} from '@Navigator';
+import { Utils } from '@Utils';
+import { color, fontFamily, fontSize } from '@styles';
+import { Navigator } from '@Navigator';
 
 export interface Props {
   backgroundColor?: string;
@@ -24,6 +24,7 @@ export interface Props {
   componentId: any;
   centerIcon?: ImageSourcePropType;
   prevScreenName?: any;
+  backTitle?: any;
 }
 const AppBar: React.FC<Props> = props => {
   let {
@@ -38,11 +39,12 @@ const AppBar: React.FC<Props> = props => {
     rightIconPress,
     centerIcon,
     prevScreenName,
+    backTitle
   } = props;
   return (
     <View
       style={{
-        paddingHorizontal: Utils.calculateWidth(10),
+        paddingHorizontal: Utils.calculateWidth(5),
         height: centerIcon ? undefined : Utils.calculateHeight(56),
         backgroundColor: backgroundColor ?? color.appBar,
         flexDirection: 'row',
@@ -54,18 +56,20 @@ const AppBar: React.FC<Props> = props => {
           justifyContent: 'center',
           alignItems: 'center',
           flexDirection: 'row',
+          // backgroundColor: 'red'
         }}>
         {!isHideBack && (
           <Pressable
-            style={{padding: 5}}
+            style={{ padding: 5, flexDirection: 'row' }}
             onPress={() => {
               leftIcon ? leftIconPress() : Navigator.setPop(componentId);
             }}>
             <Image
               resizeMode="contain"
               source={leftIcon ?? require('@images/back_arrow.png')}
-              style={{height: 20, width: 20}}
+              style={{ height: 20, width: 20 }}
             />
+            <Text style={styles.tvBackTitle}>{backTitle ?? 'Back'}</Text>
           </Pressable>
         )}
         {prevScreenName && (
@@ -73,7 +77,7 @@ const AppBar: React.FC<Props> = props => {
         )}
       </View>
 
-      <View style={{flex: 8, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
         {centerIcon && (
           <Image
             resizeMode="cover"
@@ -96,16 +100,17 @@ const AppBar: React.FC<Props> = props => {
 
       <View
         style={{
-          flex: 1,
+          flex: 1.5,
+          // backgroundColor: 'red',
           justifyContent: 'center',
-          alignItems: 'center',
+          alignItems: 'flex-end',
         }}>
         {rightIcon && (
-          <Pressable style={{padding: 5}} onPress={rightIconPress}>
+          <Pressable style={{ padding: 5 }} onPress={rightIconPress}>
             <Image
               resizeMode="contain"
               source={rightIcon}
-              style={{height: 20, width: 20}}
+              style={{ height: 20, width: 20 }}
             />
           </Pressable>
         )}
@@ -129,4 +134,9 @@ const styles = StyleSheet.create({
     fontSize: fontSize.size_16,
     color: color.white,
   },
+  tvBackTitle: {
+    fontFamily: fontFamily.Medium,
+    fontSize: fontSize.size_14,
+    color: color.white
+  }
 });
