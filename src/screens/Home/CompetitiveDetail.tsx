@@ -22,24 +22,34 @@ interface Props {}
 const CompetitiveDetail: React.FC<Props> = (props: any) => {
   const [modalVisible, setModalVisible] = useState(false);
 
-  const icon = (onPress: any, image: any) => {
+  const icon = (onPress: any, image: any, title: any) => {
     return (
       <Pressable
         onPress={onPress}
-        style={{alignItems: 'center', marginTop: 10}}>
+        style={{
+          alignItems: 'center',
+          marginTop: 10,
+          // backgroundColor: 'green',
+          width: Utils.calculateWidth(100),
+        }}>
         <Image
           source={image}
           resizeMode={'contain'}
-          style={{width: 45, height: 45}}
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: 50,
+            // marginTop: title == 'Rating' ? -50 : 0,
+            backgroundColor: color.appBar,
+          }}
         />
         <Text
           style={{
-            alignSelf: 'flex-start',
             color: color.black,
             fontSize: fontSize.size_12,
           }}>
           <Text style={{alignSelf: 'flex-start', color: color.black}}>
-            View Participate
+            {title}
           </Text>
         </Text>
       </Pressable>
@@ -107,7 +117,9 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
         <Text style={{alignSelf: 'flex-start', color: color.appBar}}>
           Entry Fees:200
         </Text>
-        <View style={{height:200}}><MyImageSlider /></View>
+        <View style={{height: 200}}>
+          <MyImageSlider />
+        </View>
 
         <Text style={[styles.dateStr, {alignSelf: 'flex-start'}]}>
           Start on 15 oct 2022 End on 17 Nov 2022
@@ -167,13 +179,27 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
             width: '60%',
             flexWrap: 'wrap',
           }}>
-          {icon(() => {
-            Navigator.setPush(props.componentId, screenName.ViewParticipate);
-          }, require('@images/add-participant.png'))}
-          {icon(() => {
-            setModalVisible(true);
-          }, require('@images/add-participant.png'))}
-          {icon(() => {}, require('@images/add-participant.png'))}
+          {icon(
+            () => {
+              Navigator.setPush(props.componentId, screenName.ViewParticipate);
+            },
+            require('@images/view-participants.png'),
+            'View Participate',
+          )}
+          {icon(
+            () => {
+              Navigator.setPush(props.componentId, screenName.AddActivity);
+            },
+            require('@images/view-activity.png'),
+            'View Activity',
+          )}
+          {icon(
+            () => {
+              setModalVisible(true);
+            },
+            require('@images/star.png'),
+            'Rating',
+          )}
         </View>
 
         <ReViewModal
