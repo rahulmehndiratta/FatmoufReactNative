@@ -17,6 +17,13 @@ import ViewParticipate from 'screens/Home/ViewParticipate';
 import AddChallenge from 'screens/Home/AddChallenge'
 import SendFeedback from 'screens/Home/SendFeedback'
 import Comments from 'screens/Home/Comments';
+import Chat from 'screens/Home/Chat';
+import JoinGroup from '../screens/Home/JoinGroup';
+import GroupDetails from 'screens/Home/GroupDetails'
+import Wallet from 'screens/Home/Wallet';
+import Withdrawal from 'screens/Home/Withdrawal';
+import BlockAccount from 'screens/Home/BlockAccount';
+import AddActivity from 'screens/Home/AddActivity';
 
 export const screenName = {
   Splash: 'Splash',
@@ -34,9 +41,16 @@ export const screenName = {
   UpdateProfile: 'UpdateProfile',
   WebViewPage: 'WebViewPage',
   ViewParticipate: 'ViewParticipate',
-  AddChallenge:'AddChallenge',
   SendFeedback:'SendFeedback',
   Comments:'Comments',
+  AddChallenge: 'AddChallenge',
+  Chat: 'Chat',
+  JoinGroup: 'JoinGroup',
+  GroupDetails:'GroupDetails',
+  Wallet: 'Wallet',
+  Withdrawal: 'Withdrawal',
+  BlockAccount: 'BlockAccount',
+  AddActivity: 'AddActivity',
 };
 
 export function registerScreens() {
@@ -59,14 +73,19 @@ export function registerScreens() {
     screenName.ViewParticipate,
     () => ViewParticipate,
   ); 
-  Navigation.registerComponent(
-    screenName.AddChallenge,
-    () => AddChallenge,
-  ); 
+
   Navigation.registerComponent(
     screenName.SendFeedback,
     () => SendFeedback,
   );
+  Navigation.registerComponent(screenName.AddChallenge, () => AddChallenge);
+  Navigation.registerComponent(screenName.Chat, () => Chat);
+  Navigation.registerComponent(screenName.JoinGroup, () => JoinGroup);
+  Navigation.registerComponent(screenName.GroupDetails, () => GroupDetails);
+  Navigation.registerComponent(screenName.Wallet, () => Wallet);
+  Navigation.registerComponent(screenName.Withdrawal, () => Withdrawal);
+  Navigation.registerComponent(screenName.BlockAccount, () => BlockAccount);
+  Navigation.registerComponent(screenName.AddActivity, () => AddActivity);
    Navigation.registerComponent(
     screenName.Comments,
     () => Comments,

@@ -119,9 +119,9 @@ export const Utils = {
   async onShare() {
     try {
       const result = await Share.share({
-        title: 'App link',
-        message: 'Please install this app and stay safe , AppLink :link',
-        url: 'link',
+        // title: 'App link',
+        message: `Please visit our Website to take better knowledege , AppLink :${'https://fatmouf.com/'}`,
+        url: 'https://fatmouf.com/',
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {

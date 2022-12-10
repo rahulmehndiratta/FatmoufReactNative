@@ -56,7 +56,8 @@ const Competitive: React.FC<Props> = props => {
         />
         <Pressable
           onPress={() => {
-            setModalVisible(true);
+            //setModalVisible(true);
+            Navigator.setPush(props.componentId, screenName.GroupDetails)
           }}>
           <Image source={require('@images/filter.png')} />
         </Pressable>
@@ -64,7 +65,7 @@ const Competitive: React.FC<Props> = props => {
 
       <FlatList
         data={data}
-        renderItem={({ item, index }) => <CompetitiveItems item={item} index={index} />}
+        renderItem={({ item, index }) => <CompetitiveItems componentId={props.componentId} item={item} index={index} />}
       />
       {/* <MyImageSlider/> */}
       <Filter
@@ -108,13 +109,13 @@ const styles = StyleSheet.create({
     fontFamily: fontFamily.Medium,
     fontSize: fontSize.size_14,
   },
-  addIconContainer: { 
-    position: 'absolute', 
-    bottom: 20, 
-    right: 5 
+  addIconContainer: {
+    position: 'absolute',
+    bottom: 20,
+    right: 5
   },
-    addIcon:{ 
-      height: Utils.calculateHeight(50), 
-      width: Utils.calculateHeight(50), 
-    }
+  addIcon: {
+    height: Utils.calculateHeight(50),
+    width: Utils.calculateHeight(50),
+  }
 });

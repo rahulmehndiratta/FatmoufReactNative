@@ -6,6 +6,7 @@ import {
   Text,
   View,
   SectionList,
+  Linking,
 } from 'react-native';
 import React, {useState} from 'react';
 import MySafeArea from '@components/MySafeArea';
@@ -90,6 +91,12 @@ const Setting: React.FC<Props> = (props: any) => {
               title: 'Privacy Policy',
               url: 'https://www.google.com',
             });
+          } else if (item?.id == 5) {
+            Linking.openURL('https://www.youtube.com/@fatmoufapp8753');
+          } else if (item?.id == 10) {
+            Utils.onShare();
+          } else if (item?.id == 4) {
+            Navigator.setPush(props.componentId, screenName.BlockAccount);
           }else if (item?.id == 9) {
             Navigator.setPush(props.componentId, screenName.SendFeedback);
           }

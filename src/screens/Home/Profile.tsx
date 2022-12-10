@@ -6,6 +6,7 @@ import Divider from '@components/Divider';
 import {color, fontFamily, fontSize} from '@styles';
 import {Navigator} from '@Navigator';
 import {screenName} from '@screenName';
+import {Utils} from '@Utils';
 
 export interface Props extends NavigationComponentProps {}
 const Profile: React.FC<Props> = props => {
@@ -129,10 +130,20 @@ const Profile: React.FC<Props> = props => {
               justifyContent: 'space-between',
               width: '100%',
             }}>
-            <Image
-              source={require('@images/wallet.png')}
-              style={{height: 20, width: 20, margin: 8}}
-            />
+            <Pressable
+              onPress={() => {
+                Navigator.setPush(props.componentId, screenName.Wallet);
+              }}>
+              <Image
+                source={require('@images/wallet.png')}
+                resizeMode={'contain'}
+                style={{
+                  height: Utils.calculateHeight(30),
+                  width: Utils.calculateWidth(30),
+                  margin: 8,
+                }}
+              />
+            </Pressable>
             <Image
               source={require('@images/logo.png')}
               style={{
