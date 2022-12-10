@@ -1,15 +1,20 @@
-import {Dimensions, FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import React, {useState} from 'react';
 import MySafeArea from '@components/MySafeArea';
 import {NavigationComponentProps} from 'react-native-navigation';
 import {color, fontFamily, fontSize} from '@styles';
-import CustomButton from '@components/CustomButton';
 import {Utils} from '@Utils';
-import MySliderBox from '@components/MyImageSlider';
-import MyImageSlider from '@components/MyImageSlider';
 import Filter from '@components/filter';
-import CompetitiveItems from '@components/CompetitiveItems'
-const screenWidth = Math.round(Dimensions.get('window').width);
+import CompetitiveItems from '@components/CompetitiveItems';
+
 export interface Props extends NavigationComponentProps {}
 const Competitive: React.FC<Props> = props => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -61,7 +66,9 @@ const Competitive: React.FC<Props> = props => {
 
       <FlatList
         data={data}
-        renderItem={({item,index }) => <CompetitiveItems item={item} index={index} />}
+        renderItem={({item, index}) => (
+          <CompetitiveItems item={item} index={index} />
+        )}
       />
       {/* <MyImageSlider/> */}
       <Filter
