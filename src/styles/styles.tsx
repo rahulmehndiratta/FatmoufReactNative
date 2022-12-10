@@ -25,6 +25,9 @@ export const color = {
   green: '#34c85a',
   filter: '#cc99cc',
   filterView: '#e6e5e9',
+  borderRed: '#ed9796',
+  blue: '#48b5fa',
+  redPrimary:'#fd3b31'
   // ...................END..........
 };
 

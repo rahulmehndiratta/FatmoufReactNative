@@ -14,7 +14,11 @@ import Setting from 'screens/Home/Setting';
 import UpdateProfile from 'screens/Home/UpdateProfile';
 import WebViewPage from 'screens/Home/WebViewPage';
 import ViewParticipate from 'screens/Home/ViewParticipate';
-import AddChallenge from 'screens/Home/AddChallenge'
+import AddChallenge from 'screens/Home/AddChallenge';
+import Wallet from 'screens/Home/Wallet';
+import Withdrawal from 'screens/Home/Withdrawal';
+import BlockAccount from 'screens/Home/BlockAccount';
+import AddActivity from 'screens/Home/AddActivity';
 
 export const screenName = {
   Splash: 'Splash',
@@ -32,7 +36,11 @@ export const screenName = {
   UpdateProfile: 'UpdateProfile',
   WebViewPage: 'WebViewPage',
   ViewParticipate: 'ViewParticipate',
-  AddChallenge:'AddChallenge'
+  AddChallenge: 'AddChallenge',
+  Wallet: 'Wallet',
+  Withdrawal: 'Withdrawal',
+  BlockAccount: 'BlockAccount',
+  AddActivity: 'AddActivity',
 };
 
 export function registerScreens() {
@@ -54,9 +62,10 @@ export function registerScreens() {
   Navigation.registerComponent(
     screenName.ViewParticipate,
     () => ViewParticipate,
-  ); 
-  Navigation.registerComponent(
-    screenName.AddChallenge,
-    () => AddChallenge,
   );
+  Navigation.registerComponent(screenName.AddChallenge, () => AddChallenge);
+  Navigation.registerComponent(screenName.Wallet, () => Wallet);
+  Navigation.registerComponent(screenName.Withdrawal, () => Withdrawal);
+  Navigation.registerComponent(screenName.BlockAccount, () => BlockAccount);
+  Navigation.registerComponent(screenName.AddActivity, () => AddActivity);
 }

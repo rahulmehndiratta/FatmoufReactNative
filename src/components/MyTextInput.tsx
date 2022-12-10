@@ -29,6 +29,7 @@ export interface Props {
   iconColor?: any;
   secureTextEntry?: boolean;
   width?: any;
+  backgroundColor?: any;
 }
 
 const MyTextInput: React.FC<Props> = props => {
@@ -49,6 +50,7 @@ const MyTextInput: React.FC<Props> = props => {
     iconColor,
     secureTextEntry,
     width,
+    backgroundColor,
   } = props;
 
   return (
@@ -59,6 +61,7 @@ const MyTextInput: React.FC<Props> = props => {
           marginTop: marginTop,
           minHeight: height ?? Utils.calculateHeight(50),
           width: width ?? '100%',
+          backgroundColor: backgroundColor ?? color.white,
         },
       ]}>
       {leftIcon && (
@@ -104,7 +107,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     // borderWidth: 1,
-    backgroundColor: color.white,
+
     borderColor: 'gray',
     alignItems: 'center',
     borderRadius: Utils.calculateHeight(10),

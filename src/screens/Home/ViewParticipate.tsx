@@ -3,6 +3,7 @@ import React from 'react';
 import MySafeArea from '@components/MySafeArea';
 import {Utils} from '@Utils';
 import {color} from '@styles';
+import Search from '@components/Search';
 interface Props {}
 const ViewParticipate: React.FC<Props> = (props: any) => {
   const renderItem = (item: any, index: any) => {
@@ -77,6 +78,7 @@ const ViewParticipate: React.FC<Props> = (props: any) => {
           flex: 1,
           backgroundColor: color.white,
         }}>
+        <Search />
         <FlatList
           data={[{}, {}, {}]}
           renderItem={({item, index}) => renderItem(item, index)}
