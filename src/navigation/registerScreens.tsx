@@ -14,10 +14,12 @@ import Setting from 'screens/Home/Setting';
 import UpdateProfile from 'screens/Home/UpdateProfile';
 import WebViewPage from 'screens/Home/WebViewPage';
 import ViewParticipate from 'screens/Home/ViewParticipate';
+import AddChallenge from 'screens/Home/AddChallenge'
+import SendFeedback from 'screens/Home/SendFeedback'
+import Comments from 'screens/Home/Comments';
 import Chat from 'screens/Home/Chat';
 import JoinGroup from '../screens/Home/JoinGroup';
 import GroupDetails from 'screens/Home/GroupDetails'
-import AddChallenge from 'screens/Home/AddChallenge';
 import Wallet from 'screens/Home/Wallet';
 import Withdrawal from 'screens/Home/Withdrawal';
 import BlockAccount from 'screens/Home/BlockAccount';
@@ -39,6 +41,8 @@ export const screenName = {
   UpdateProfile: 'UpdateProfile',
   WebViewPage: 'WebViewPage',
   ViewParticipate: 'ViewParticipate',
+  SendFeedback:'SendFeedback',
+  Comments:'Comments',
   AddChallenge: 'AddChallenge',
   Chat: 'Chat',
   JoinGroup: 'JoinGroup',
@@ -68,6 +72,11 @@ export function registerScreens() {
   Navigation.registerComponent(
     screenName.ViewParticipate,
     () => ViewParticipate,
+  ); 
+
+  Navigation.registerComponent(
+    screenName.SendFeedback,
+    () => SendFeedback,
   );
   Navigation.registerComponent(screenName.AddChallenge, () => AddChallenge);
   Navigation.registerComponent(screenName.Chat, () => Chat);
@@ -77,4 +86,8 @@ export function registerScreens() {
   Navigation.registerComponent(screenName.Withdrawal, () => Withdrawal);
   Navigation.registerComponent(screenName.BlockAccount, () => BlockAccount);
   Navigation.registerComponent(screenName.AddActivity, () => AddActivity);
+   Navigation.registerComponent(
+    screenName.Comments,
+    () => Comments,
+  );
 }
