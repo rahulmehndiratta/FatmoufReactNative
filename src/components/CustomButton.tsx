@@ -20,6 +20,8 @@ export interface Props {
   width?: any;
   height?: any;
   boderRadius?: any;
+  textColor?: any;
+  textSize?: any;
 }
 
 const CustomButton: React.FC<Props> = props => {
@@ -33,6 +35,8 @@ const CustomButton: React.FC<Props> = props => {
     width,
     height,
     boderRadius,
+    textColor,
+    textSize,
   } = props;
   return (
     <TouchableOpacity
@@ -52,7 +56,16 @@ const CustomButton: React.FC<Props> = props => {
       {iconLeft && (
         <Image style={styles.ivImage} source={iconLeft} resizeMode="contain" />
       )}
-      <Text style={styles.tvTitle}>{title}</Text>
+      <Text
+        style={[
+          styles.tvTitle,
+          {
+            color: textColor ?? color.white,
+            fontSize: textSize ?? fontSize.size_15,
+          },
+        ]}>
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -70,7 +83,6 @@ const styles = StyleSheet.create({
   tvTitle: {
     fontSize: fontSize.size_15,
     fontFamily: fontFamily.SemiBold,
-    color: color.white,
   },
   ivImage: {
     height: 24,

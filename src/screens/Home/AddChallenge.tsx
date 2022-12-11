@@ -97,7 +97,8 @@ const AddChallenge: React.FC<Props> = props => {
       title="Add Challenge"
       prevScreenName={'Cancel'}
       rightTitle={'Post'}
-      rightTitlePress={() => Alert.alert('Alert!', 'Coming soon')}>
+      rightTitlePress={() => Alert.alert('Alert!', 'Coming soon')}
+      isScroll>
       <View style={styles.container}>
         <Tabs
           tabs={['Public', 'Private']}

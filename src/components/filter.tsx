@@ -13,13 +13,15 @@ import {Utils} from '@Utils';
 import CustomButton from './CustomButton';
 import ChildItem from './CustomSlider/ChildItem';
 import ColseModal from './ColseModal';
+import Search from './Search';
 interface Props {
   visible: any;
   inVisible: any;
   item: any;
+  fromCompetitve?: boolean;
 }
 const Filter: React.FC<Props> = (props: any) => {
-  const {visible, inVisible, item} = props;
+  const {visible, inVisible, item, fromCompetitve} = props;
   const [selectItem, setSelectItem] = useState(0);
   const [filterValue, setFilterValue] = useState([]);
   const [selectFilterValue, setSelectFilterValue] = useState(0);
@@ -32,7 +34,12 @@ const Filter: React.FC<Props> = (props: any) => {
           height: 70,
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: selectItem == item.id ? color.filter : color.white,
+          backgroundColor:
+            selectItem == item.id
+              ? color.filter
+              : fromCompetitve
+              ? color.filterView
+              : color.white,
           // marginTop: index == 0 ? 0 : 20,
           borderBottomColor: color.boderColor,
           borderBottomWidth: 1,
@@ -51,7 +58,7 @@ const Filter: React.FC<Props> = (props: any) => {
             color: selectItem == item.id ? color.white : color.black,
             fontFamily: fontFamily.Regular,
           }}>
-          Tranction From
+          {item.name}
         </Text>
       </Pressable>
     );
@@ -131,6 +138,13 @@ const Filter: React.FC<Props> = (props: any) => {
           </Text>
           <View
             style={{
+              paddingHorizontal: Utils.calculateHeight(10),
+              marginBottom: Utils.calculateHeight(20),
+            }}>
+            {fromCompetitve && <Search backgroundColor={color.white} />}
+          </View>
+          <View
+            style={{
               flexDirection: 'row',
               flex: 1,
               justifyContent: 'space-evenly',
@@ -138,7 +152,7 @@ const Filter: React.FC<Props> = (props: any) => {
             <View
               style={{
                 // flex: 1,
-                backgroundColor: color.white,
+                // backgroundColor: color.white,
                 height: '100%',
                 width: '48%',
               }}>
@@ -150,7 +164,7 @@ const Filter: React.FC<Props> = (props: any) => {
             <View
               style={{
                 // flex: 1,
-                backgroundColor: color.white,
+                // backgroundColor: color.white,
                 height: '100%',
                 width: '48%',
               }}>

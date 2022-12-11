@@ -27,44 +27,71 @@ const Competitive: React.FC<Props> = props => {
   const filterItem = [
     {
       id: 0,
-      name: 'Transaction From',
+      name: 'Type',
       value: [
         {
           valueId: 0,
-          valueName: 'All',
+          valueName: 'Private',
         },
         {
           valueId: 1,
-          valueName: 'All',
-        },
-        {
-          valueId: 2,
-          valueName: 'All',
+          valueName: 'Public',
         },
       ],
     },
     {
       id: 1,
-      name: 'Transaction From',
+      name: 'Status',
       value: [
         {
           valueId: 0,
-          valueName: 'Bank',
+          valueName: 'Upcoming',
         },
         {
           valueId: 1,
-          valueName: 'Bank',
+          valueName: 'In-progress',
         },
         {
           valueId: 2,
-          valueName: 'Bank',
+          valueName: 'Complete',
         },
       ],
     },
     {
       id: 2,
-      name: 'Transaction From',
-      value: [{}],
+      name: 'Tags',
+      value: [
+        {
+          valueId: 0,
+          valueName: 'Fat Mouf',
+        },
+        {
+          valueId: 1,
+          valueName: 'Gamer',
+        },
+        {
+          valueId: 2,
+          valueName: 'Gamer',
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: 'Status',
+      value: [
+        {
+          valueId: 0,
+          valueName: 'Fat Mouf',
+        },
+        {
+          valueId: 1,
+          valueName: 'Gamer',
+        },
+        {
+          valueId: 2,
+          valueName: 'Gamer',
+        },
+      ],
     },
   ];
   const data = [
@@ -96,8 +123,9 @@ const Competitive: React.FC<Props> = props => {
       isHideBack
       title="Competitive"
       rightIcon={require('@images/setting-white.png')}
-      rightIconPress={()=>Navigator.setPush(props.componentId, screenName.Setting)}
-      >
+      rightIconPress={() =>
+        Navigator.setPush(props.componentId, screenName.Setting)
+      }>
       <View style={styles.rowContainer}>
         <FlatList
           data={data}
@@ -130,6 +158,7 @@ const Competitive: React.FC<Props> = props => {
         visible={modalVisible}
         inVisible={() => setModalVisible(false)}
         item={filterItem}
+        fromCompetitve={true}
         // imageDataSend={imagefromfeedback}
         // status={isChecked ? '1' : '0'}
       />
