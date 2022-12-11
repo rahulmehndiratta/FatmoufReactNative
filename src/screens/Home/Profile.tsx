@@ -1,5 +1,5 @@
 import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {NavigationComponentProps} from 'react-native-navigation';
 import MySafeArea from '@components/MySafeArea';
 import Divider from '@components/Divider';
@@ -8,8 +8,14 @@ import {Navigator} from '@Navigator';
 import {screenName} from '@screenName';
 import {Utils} from '@Utils';
 
-export interface Props extends NavigationComponentProps {}
+export interface Props extends NavigationComponentProps {
+  propsData?: any;
+}
 const Profile: React.FC<Props> = props => {
+  const {propsData} = props;
+  useEffect(() => {
+    console.log('propsData', props);
+  }, [props]);
   const renderButton = () => {
     return (
       <View
@@ -112,7 +118,8 @@ const Profile: React.FC<Props> = props => {
       rightIcon={require('@images/setting-white.png')}
       padding={0}
       paddingHorizontal={0}
-      isHideBack
+      isHideBack={propsData ? false : true}
+      prevScreenName={propsData ?? ''}
       rightIconPress={() => {
         Navigator.setPush(props.componentId, screenName.Setting);
       }}>

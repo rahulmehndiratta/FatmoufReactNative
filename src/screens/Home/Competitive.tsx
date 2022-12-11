@@ -1,22 +1,72 @@
-import { Dimensions, FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import React, { useState } from 'react';
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+import React, {useState} from 'react';
 import MySafeArea from '@components/MySafeArea';
-import { NavigationComponentProps } from 'react-native-navigation';
-import { color, fontFamily, fontSize } from '@styles';
+import {NavigationComponentProps} from 'react-native-navigation';
+import {color, fontFamily, fontSize} from '@styles';
 import CustomButton from '@components/CustomButton';
-import { Utils } from '@Utils';
+import {Utils} from '@Utils';
 import MySliderBox from '@components/MyImageSlider';
 import MyImageSlider from '@components/MyImageSlider';
 import Filter from '@components/filter';
-import CompetitiveItems from '@components/CompetitiveItems'
+import CompetitiveItems from '@components/CompetitiveItems';
 import ClickableImage from '@components/ClickableImage';
-import { Navigator } from '@Navigator';
-import { screenName } from '@screenName';
+import {Navigator} from '@Navigator';
+import {screenName} from '@screenName';
 const screenWidth = Math.round(Dimensions.get('window').width);
-export interface Props extends NavigationComponentProps { }
+export interface Props extends NavigationComponentProps {}
 const Competitive: React.FC<Props> = props => {
   const [modalVisible, setModalVisible] = useState(false);
-
+  const filterItem = [
+    {
+      id: 0,
+      name: 'Transaction From',
+      value: [
+        {
+          valueId: 0,
+          valueName: 'All',
+        },
+        {
+          valueId: 1,
+          valueName: 'All',
+        },
+        {
+          valueId: 2,
+          valueName: 'All',
+        },
+      ],
+    },
+    {
+      id: 1,
+      name: 'Transaction From',
+      value: [
+        {
+          valueId: 0,
+          valueName: 'Bank',
+        },
+        {
+          valueId: 1,
+          valueName: 'Bank',
+        },
+        {
+          valueId: 2,
+          valueName: 'Bank',
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: 'Transaction From',
+      value: [{}],
+    },
+  ];
   const data = [
     {
       id: 1,
@@ -34,7 +84,7 @@ const Competitive: React.FC<Props> = props => {
   const _renderItems = (item: any, index: number) => {
     return (
       <Pressable
-        style={[styles.btnContainer, { marginStart: index === 0 ? 0 : 10 }]}>
+        style={[styles.btnContainer, {marginStart: index === 0 ? 0 : 10}]}>
         <Text style={styles.tvBtnTitle}>{item?.name}</Text>
       </Pressable>
     );
@@ -54,12 +104,12 @@ const Competitive: React.FC<Props> = props => {
           showsHorizontalScrollIndicator={false}
           horizontal={true}
           // keyExtractor={({item:any}) => item?.id}
-          renderItem={({ item, index }) => _renderItems(item, index)}
+          renderItem={({item, index}) => _renderItems(item, index)}
         />
         <Pressable
           onPress={() => {
-            //setModalVisible(true);
-            Navigator.setPush(props.componentId, screenName.GroupDetails)
+            setModalVisible(true);
+            // Navigator.setPush(props.componentId, screenName.GroupDetails)
           }}>
           <Image source={require('@images/filter.png')} />
         </Pressable>
@@ -67,23 +117,31 @@ const Competitive: React.FC<Props> = props => {
 
       <FlatList
         data={data}
-        renderItem={({ item, index }) => <CompetitiveItems componentId={props.componentId} item={item} index={index} />}
+        renderItem={({item, index}) => (
+          <CompetitiveItems
+            componentId={props.componentId}
+            item={item}
+            index={index}
+          />
+        )}
       />
       {/* <MyImageSlider/> */}
       <Filter
         visible={modalVisible}
         inVisible={() => setModalVisible(false)}
-
-      // imageDataSend={imagefromfeedback}
-      // status={isChecked ? '1' : '0'}
+        item={filterItem}
+        // imageDataSend={imagefromfeedback}
+        // status={isChecked ? '1' : '0'}
       />
 
       <ClickableImage
         source={require('@images/add-purple.png')}
         style={styles.addIcon}
         containerStyle={styles.addIconContainer}
-        resizeMode='contain'
-        onPress={() => Navigator.setPush(props.componentId, screenName.AddChallenge)}
+        resizeMode="contain"
+        onPress={() =>
+          Navigator.setPush(props.componentId, screenName.AddChallenge)
+        }
       />
     </MySafeArea>
   );
@@ -96,7 +154,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 10,
     // backgroundColor:'green',
-    marginBottom: Utils.calculateHeight(15)
+    marginBottom: Utils.calculateHeight(15),
   },
   btnContainer: {
     backgroundColor: color.appBar,
@@ -114,10 +172,10 @@ const styles = StyleSheet.create({
   addIconContainer: {
     position: 'absolute',
     bottom: 20,
-    right: 5
+    right: 5,
   },
   addIcon: {
     height: Utils.calculateHeight(50),
     width: Utils.calculateHeight(50),
-  }
+  },
 });

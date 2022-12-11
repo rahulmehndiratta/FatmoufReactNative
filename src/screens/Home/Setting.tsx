@@ -103,6 +103,8 @@ const Setting: React.FC<Props> = (props: any) => {
             Navigator.setPush(props.componentId, screenName.BlockAccount);
           }else if (item?.id == 9) {
             Navigator.setPush(props.componentId, screenName.SendFeedback);
+          } else if (item.id == 12) {
+            Navigator.setRoot(screenName.Login);
           }
         }}
         style={{}}>

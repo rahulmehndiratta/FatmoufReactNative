@@ -16,55 +16,13 @@ import ColseModal from './ColseModal';
 interface Props {
   visible: any;
   inVisible: any;
+  item: any;
 }
 const Filter: React.FC<Props> = (props: any) => {
-  const {visible, inVisible} = props;
+  const {visible, inVisible, item} = props;
   const [selectItem, setSelectItem] = useState(0);
   const [filterValue, setFilterValue] = useState([]);
   const [selectFilterValue, setSelectFilterValue] = useState(0);
-  const filterItem = [
-    {
-      id: 0,
-      name: 'Transaction From',
-      value: [
-        {
-          valueId: 0,
-          valueName: 'All',
-        },
-        {
-          valueId: 1,
-          valueName: 'All',
-        },
-        {
-          valueId: 2,
-          valueName: 'All',
-        },
-      ],
-    },
-    {
-      id: 1,
-      name: 'Transaction From',
-      value: [
-        {
-          valueId: 0,
-          valueName: 'Bank',
-        },
-        {
-          valueId: 1,
-          valueName: 'Bank',
-        },
-        {
-          valueId: 2,
-          valueName: 'Bank',
-        },
-      ],
-    },
-    {
-      id: 2,
-      name: 'Transaction From',
-      value: [{}],
-    },
-  ];
 
   const renderItem = (item: any, index: any) => {
     return (
@@ -185,7 +143,7 @@ const Filter: React.FC<Props> = (props: any) => {
                 width: '48%',
               }}>
               <FlatList
-                data={filterItem}
+                data={item}
                 renderItem={({item, index}) => renderItem(item, index)}
               />
             </View>

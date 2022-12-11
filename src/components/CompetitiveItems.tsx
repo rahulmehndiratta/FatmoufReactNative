@@ -9,12 +9,13 @@ import {Navigator} from '@Navigator';
 import {screenName} from '@screenName';
 
 export interface Props {
+  componentId: any;
   item: any;
   index: number;
 }
 
 const CompetitiveItems: React.FC<Props> = (props: any) => {
-  const {item, index} = props;
+  const {item, index, componentId} = props;
 
   const [visible, setVisible] = useState(false);
 
@@ -51,11 +52,13 @@ const CompetitiveItems: React.FC<Props> = (props: any) => {
   return (
     <Pressable
       style={styles.container}
-      onPress={() => Navigator.setPush(props.componentId, screenName.JoinGroup)}>
+      onPress={() =>
+        Navigator.setPush(componentId, screenName.CompetitiveDetail)
+      }>
       <View style={styles.nameAndMoreTopView}>
         <View style={styles.imageAndNameView}>
           <Image
-            resizeMode="cover"
+            resizeMode="contain"
             style={{
               height: 50,
               width: 50,

@@ -4,11 +4,23 @@ import MySafeArea from '@components/MySafeArea';
 import {Utils} from '@Utils';
 import {color} from '@styles';
 import Search from '@components/Search';
+import OutLineButton from '@components/outLineButton';
+import {Navigator} from '@Navigator';
+import {screenName} from '@screenName';
 interface Props {}
 const ViewParticipate: React.FC<Props> = (props: any) => {
   const renderItem = (item: any, index: any) => {
     return (
-      <View style={styles.headerContainer}>
+      <Pressable
+        onPress={() => {
+          let fromParticipateList = 'Participate List';
+          Navigator.setPush(
+            props.componentId,
+            screenName.Profile,
+            fromParticipateList,
+          );
+        }}
+        style={styles.headerContainer}>
         <Image
           source={require('@images/dummy.png')}
           resizeMode={'contain'}
@@ -41,29 +53,13 @@ const ViewParticipate: React.FC<Props> = (props: any) => {
             <Text>Chandigarh, Chandigarh</Text>
           </View>
         </View>
-        <View
-          style={{
-            // flexDirection: 'row',
-            paddingVertical: 5,
-            paddingHorizontal: 10,
-            borderColor: color.appBar,
-            borderWidth: 1,
-            borderRadius: 8,
-            // width: '100%',
-            // marginTop: Utils.calculateHeight(20),
-            justifyContent: 'space-between',
-          }}>
-          <Text style={{color: color.appBar}}>Middle Man</Text>
-          {/* <Image
-            source={require('@images/middle_man.jpeg')}
-            resizeMode={'contain'}
-            style={{
-              width: Utils.calculateWidth(25),
-              height: Utils.calculateHeight(25),
-            }}
-          /> */}
-        </View>
-      </View>
+        <OutLineButton
+          text={'Accept'}
+          marginTop={0}
+          alignSelf={'flex-start'}
+          underLine={'none'}
+        />
+      </Pressable>
     );
   };
 
