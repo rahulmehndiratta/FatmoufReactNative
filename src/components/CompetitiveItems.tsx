@@ -102,11 +102,14 @@ const CompetitiveItems: React.FC<Props> = (props: any) => {
         </View>
 
         <Menu visible={visible} onRequestClose={hideMenu}>
-          <MenuItem onPress={hideMenu}>Menu item 1</MenuItem>
-          <MenuItem onPress={hideMenu}>Menu item 2</MenuItem>
-          <MenuItem disabled>Disabled item</MenuItem>
+
+          <MenuItem onPress={hideMenu}>Challenge actions</MenuItem>
           <MenuDivider />
-          <MenuItem onPress={hideMenu}>Menu item 4</MenuItem>
+          <MenuItem onPress={hideMenu}>Report</MenuItem>
+          <MenuDivider />
+          <MenuItem onPress={hideMenu}>Details</MenuItem>
+          <MenuDivider />
+          <MenuItem onPress={hideMenu}>Dismiss</MenuItem>
         </Menu>
       </View>
       <Divider marginTop={25} borderColor={color.grayText} />

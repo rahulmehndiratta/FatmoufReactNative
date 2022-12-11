@@ -14,7 +14,7 @@ const TalkYoTalk: React.FC<Props> = (props: any) => {
     return (
       <Pressable
         onPress={() => {
-          Navigator.setPush(props.componentId, screenName.Chat, { name: 'Rohit Shakywar' })
+          Navigator.setPush(props.componentId, index===0?screenName.Chat:screenName.JoinGroup, { name: 'Rohit Shakywar' })
         }}
         style={[styles.shadowBox, { margin: 5, padding: 5 }]}>
         <View
