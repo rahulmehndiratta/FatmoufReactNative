@@ -37,10 +37,6 @@ const Chat: React.FC<Props> = props => {
       id: 4,
       value: 'Group Details',
     },
-    {
-      id: 5,
-      value: 'Cancel',
-    },
   ];
   const _renderItems = ({item, index}) => {
     console.log('chatindex', index);
@@ -158,12 +154,7 @@ const Chat: React.FC<Props> = props => {
         visible={chatModal}
         inVisible={() => setChatModal(false)}
         item={chatModalItem}
-        onPress={(id: any) => {
-          console.log('Item id', id);
-          if (id == 5) {
-            setChatModal(false);
-          }
-        }}
+        onPress={() => {}}
       />
     </MySafeArea>
   );

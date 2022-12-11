@@ -4,6 +4,7 @@ import {Modal} from 'react-native-navigation';
 import {color, fontFamily, fontSize} from '@styles';
 import {Utils} from '@Utils';
 import ColseModal from './ColseModal';
+import CustomButton from './CustomButton';
 interface Props {
   visible: any;
   inVisible: any;
@@ -30,7 +31,7 @@ const ChatModal: React.FC<Props> = (props: any) => {
             textAlign: 'center',
             fontFamily: fontFamily.Regular,
             fontSize: fontSize.size_22,
-            color: color.black,
+            color: color.blue,
           }}>
           {item.value}
         </Text>
@@ -51,7 +52,9 @@ const ChatModal: React.FC<Props> = (props: any) => {
             width: '100%',
             // height: '40%',
             backgroundColor: color.white,
-            paddingBottom: 20,
+            // paddingBottom: 10,
+            borderRadius: 10,
+
             // alignItems: 'center',
             // padding: 10,
           }}>
@@ -67,6 +70,16 @@ const ChatModal: React.FC<Props> = (props: any) => {
             renderItem={({item, index}) => renderItem(item, index)}
           />
         </View>
+        <CustomButton
+          title="Cancel"
+          backgroundColor={color.white}
+          textColor={color.blue}
+          textSize={fontSize.size_22}
+          onPress={() => {
+            inVisible();
+          }}
+          marginTop={Utils.calculateHeight(10)}
+        />
       </View>
     </Modal>
   );
@@ -79,5 +92,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     backgroundColor: 'rgba(100, 100, 100, 0.5)',
+    alignItems: 'center',
+    paddingHorizontal: Utils.calculateHeight(10),
+    paddingBottom: Utils.calculateHeight(5),
   },
 });

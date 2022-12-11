@@ -58,7 +58,7 @@ const Filter: React.FC<Props> = (props: any) => {
             color: selectItem == item.id ? color.white : color.black,
             fontFamily: fontFamily.Regular,
           }}>
-          Tranction From
+          {item.name}
         </Text>
       </Pressable>
     );
