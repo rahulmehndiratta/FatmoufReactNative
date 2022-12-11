@@ -16,7 +16,7 @@ const JoinGroup: React.FC<Props> = props => {
   const [groupName, setGroupName] = useState('');
   const [description, setDescriptionText] = useState('');
   return (
-    <MySafeArea componentId={props.componentId}>
+    <MySafeArea componentId={props.componentId} isScroll={true}>
       <CustomButton
         onPress={() => {
           Navigator.setPush(props.componentId, screenName.Chat);

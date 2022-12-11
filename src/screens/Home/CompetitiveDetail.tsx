@@ -189,7 +189,7 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
           )}
           {icon(
             () => {
-              Navigator.setPush(props.componentId, screenName.AddActivity);
+              Navigator.setPush(props.componentId, screenName.ViewActivity);
             },
             require('@images/view-activity.png'),
             'View Activity',
