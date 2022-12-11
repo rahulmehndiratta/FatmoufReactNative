@@ -97,6 +97,8 @@ const Setting: React.FC<Props> = (props: any) => {
             Utils.onShare();
           } else if (item?.id == 4) {
             Navigator.setPush(props.componentId, screenName.BlockAccount);
+          } else if (item.id == 12) {
+            Navigator.setRoot(screenName.Login);
           }
         }}
         style={{}}>

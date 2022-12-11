@@ -52,11 +52,11 @@ const AppBar: React.FC<Props> = props => {
       }}>
       <View
         style={{
-          flex: 1.5,
+          // flex: 2,
           justifyContent: 'center',
           alignItems: 'center',
           flexDirection: 'row',
-          // backgroundColor: 'red'
+          // backgroundColor: 'red',
         }}>
         {!isHideBack && (
           <Pressable
@@ -135,5 +135,6 @@ const styles = StyleSheet.create({
     fontFamily: fontFamily.Medium,
     fontSize: fontSize.size_14,
     color: color.white,
+    textDecorationLine: 'underline',
   },
 });

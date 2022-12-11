@@ -9,12 +9,13 @@ import {Navigator} from '@Navigator';
 import {screenName} from '@screenName';
 
 export interface Props {
+  componentId: any;
   item: any;
   index: number;
 }
 
 const CompetitiveItems: React.FC<Props> = (props: any) => {
-  const {item, index} = props;
+  const {item, index, componentId} = props;
 
   const [visible, setVisible] = useState(false);
 
@@ -51,11 +52,13 @@ const CompetitiveItems: React.FC<Props> = (props: any) => {
   return (
     <Pressable
       style={styles.container}
-      onPress={() => Navigator.setPush(props.componentId, screenName.JoinGroup)}>
+      onPress={() =>
+        Navigator.setPush(componentId, screenName.CompetitiveDetail)
+      }>
       <View style={styles.nameAndMoreTopView}>
         <View style={styles.imageAndNameView}>
           <Image
-            resizeMode="cover"
+            resizeMode="contain"
             style={{
               height: 50,
               width: 50,
@@ -110,8 +113,8 @@ const CompetitiveItems: React.FC<Props> = (props: any) => {
           Rocket to win it all
         </Text>
         <ClickableImage
-          source={require('@images/menu-dots.png')}
-          style={{height: 20, width: 10}}
+          source={require('@images/expand.png')}
+          style={{height: 25, width: 25}}
           // containerStyle={{ alignSelf: 'flex-end' }}
           resizeMode="contain"
           onPress={() => Alert.alert('Alert!', 'this is testing message')}
