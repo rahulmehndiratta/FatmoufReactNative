@@ -18,8 +18,12 @@ import {Navigator} from '@Navigator';
 import CustomButton from '@components/CustomButton';
 import {color, fontFamily, fontSize} from '@styles';
 import {screenName} from '@screenName';
-interface Props {}
+import { NavigationComponentProps } from 'react-native-navigation';
+interface Props extends NavigationComponentProps{
+  propsData:any
+}
 const Setting: React.FC<Props> = (props: any) => {
+  const{propsData}=props
   const [data, setData] = useState([
     {
       title: 'Account',
@@ -97,6 +101,10 @@ const Setting: React.FC<Props> = (props: any) => {
             Utils.onShare();
           } else if (item?.id == 4) {
             Navigator.setPush(props.componentId, screenName.BlockAccount);
+          }else if (item?.id == 9) {
+            Navigator.setPush(props.componentId, screenName.SendFeedback);
+          } else if (item.id == 12) {
+            Navigator.setRoot(screenName.Login);
           }
         }}
         style={{}}>

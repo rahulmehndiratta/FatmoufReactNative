@@ -9,12 +9,13 @@ import {Navigator} from '@Navigator';
 import {screenName} from '@screenName';
 
 export interface Props {
+  componentId: any;
   item: any;
   index: number;
 }
 
 const CompetitiveItems: React.FC<Props> = (props: any) => {
-  const {item, index} = props;
+  const {item, index, componentId} = props;
 
   const [visible, setVisible] = useState(false);
 
@@ -51,11 +52,22 @@ const CompetitiveItems: React.FC<Props> = (props: any) => {
   return (
     <Pressable
       style={styles.container}
-      onPress={() => Navigator.setPush(props.componentId, screenName.JoinGroup)}>
+      onPress={() =>
+        Navigator.setPush(componentId, screenName.CompetitiveDetail)
+      }>
       <View style={styles.nameAndMoreTopView}>
-        <View style={styles.imageAndNameView}>
+        <Pressable style={styles.imageAndNameView}
+        onPress={()=>{
+         const sendData={
+            isBack:false,
+            backTitle:'Competitive'
+          }
+          Navigator.setPush(props.componentId, screenName.Profile,{isBack:true,
+            backTitle:'Competitive'})
+        }}
+        >
           <Image
-            resizeMode="cover"
+            resizeMode="contain"
             style={{
               height: 50,
               width: 50,
@@ -75,7 +87,7 @@ const CompetitiveItems: React.FC<Props> = (props: any) => {
             }}>
             Manurohit Shakywar
           </Text>
-        </View>
+        </Pressable>
         <View style={{flexGrow: 0, alignItems: 'center'}}>
           <Text>26 Nov 2022</Text>
           <ClickableImage
@@ -110,11 +122,11 @@ const CompetitiveItems: React.FC<Props> = (props: any) => {
           Rocket to win it all
         </Text>
         <ClickableImage
-          source={require('@images/menu-dots.png')}
-          style={{height: 20, width: 10}}
+          source={require('@images/expand.png')}
+          style={{height: 20, width: 15}}
           // containerStyle={{ alignSelf: 'flex-end' }}
           resizeMode="contain"
-          onPress={() => Alert.alert('Alert!', 'this is testing message')}
+          onPress={() => Alert.alert('Alert!', 'this is testing ')}
         />
       </View>
       <Text style={{marginTop: 10}}>i like Centeral to will it all!</Text>

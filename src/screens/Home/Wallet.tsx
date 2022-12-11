@@ -14,7 +14,50 @@ const Wallet: React.FC<Props> = (props: any) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [addMoneyModal, setAddMoneyModal] = useState(false);
   const [amount, setAmount] = useState('');
- 
+
+  const filterItem = [
+    {
+      id: 0,
+      name: 'Transaction From',
+      value: [
+        {
+          valueId: 0,
+          valueName: 'All',
+        },
+        {
+          valueId: 1,
+          valueName: 'All',
+        },
+        {
+          valueId: 2,
+          valueName: 'All',
+        },
+      ],
+    },
+    {
+      id: 1,
+      name: 'Transaction From',
+      value: [
+        {
+          valueId: 0,
+          valueName: 'Bank',
+        },
+        {
+          valueId: 1,
+          valueName: 'Bank',
+        },
+        {
+          valueId: 2,
+          valueName: 'Bank',
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: 'Transaction From',
+      value: [{}],
+    },
+  ];
   const filter = () => {
     return (
       <OutLineButton
@@ -134,6 +177,7 @@ const Wallet: React.FC<Props> = (props: any) => {
       <Filter
         visible={modalVisible}
         inVisible={() => setModalVisible(false)}
+        item={filterItem}
 
         // imageDataSend={imagefromfeedback}
         // status={isChecked ? '1' : '0'}

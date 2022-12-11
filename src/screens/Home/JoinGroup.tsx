@@ -1,34 +1,35 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput } from 'react-native';
-import { NavigationComponentProps } from 'react-native-navigation';
+import React, {useState} from 'react';
+import {StyleSheet, Text, TextInput} from 'react-native';
+import {NavigationComponentProps} from 'react-native-navigation';
 import MySafeArea from '@components/MySafeArea';
 import CustomButton from '@components/CustomButton';
 import ClickableImage from '@components/ClickableImage';
-import { color, fontFamily, fontSize } from '@styles';
+import {color, fontFamily, fontSize} from '@styles';
 import MyTextInput from '@components/MyTextInput';
-import { Utils } from '@Utils';
-import { Navigator } from '@Navigator';
-import { screenName } from '@screenName';
+import {Utils} from '@Utils';
+import {Navigator} from '@Navigator';
+import {screenName} from '@screenName';
 
-export interface Props extends NavigationComponentProps { }
+export interface Props extends NavigationComponentProps {}
 
 const JoinGroup: React.FC<Props> = props => {
-  const [groupName, setGroupName] = useState('')
-  const [description, setDescriptionText] = useState('')
+  const [groupName, setGroupName] = useState('');
+  const [description, setDescriptionText] = useState('');
   return (
     <MySafeArea componentId={props.componentId}>
       <CustomButton
         onPress={() => {
-          Navigator.setPush(props.componentId, screenName.Chat)
+          Navigator.setPush(props.componentId, screenName.Chat);
         }}
-        title={'Join Group'} />
+        title={'Join Group'}
+      />
 
       <Text style={styles.heading}>Group Image</Text>
 
       <ClickableImage
-        resizeMode={'cover'}
-        source={require('@images/logo.png')}
-        containerStyle={{ marginTop: 10 }}
+        resizeMode={'contain'}
+        source={require('@images/app.png')}
+        containerStyle={{marginTop: 10}}
         style={{
           height: 200,
           width: '100%',
@@ -41,7 +42,7 @@ const JoinGroup: React.FC<Props> = props => {
       <MyTextInput
         value={groupName}
         marginTop={Utils.calculateHeight(20)}
-        placeholder={''}
+        placeholder={'Git Main'}
         keyboardType={'default'}
         onChangeText={text => setGroupName(text)}
       />
@@ -56,7 +57,6 @@ const JoinGroup: React.FC<Props> = props => {
           setDescriptionText(text);
           //setShowError(false);
         }}
-
         style={{
           height: Utils.calculateHeight(120),
           borderColor: color.grayText,
@@ -68,8 +68,6 @@ const JoinGroup: React.FC<Props> = props => {
           width: '100%',
         }}
       />
-
-
     </MySafeArea>
   );
 };
@@ -81,6 +79,6 @@ const styles = StyleSheet.create({
     color: color.black,
     fontSize: fontSize.size_16,
     marginTop: 10,
-    fontFamily: fontFamily.Bold
-  }
+    fontFamily: fontFamily.Bold,
+  },
 });

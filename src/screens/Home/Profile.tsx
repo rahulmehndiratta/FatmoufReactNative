@@ -1,5 +1,5 @@
 import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {NavigationComponentProps} from 'react-native-navigation';
 import MySafeArea from '@components/MySafeArea';
 import Divider from '@components/Divider';
@@ -8,11 +8,19 @@ import {Navigator} from '@Navigator';
 import {screenName} from '@screenName';
 import {Utils} from '@Utils';
 
-export interface Props extends NavigationComponentProps {}
+export interface Props extends NavigationComponentProps {
+  propsData?: any;
+}
 const Profile: React.FC<Props> = props => {
+  const {propsData} = props;
+  useEffect(() => {
+    console.log('propsData', propsData);
+  }, [props]);
   const renderButton = () => {
     return (
-      <View
+      <Pressable
+      onPress={()=>Navigator.setPush(props.componentId, screenName.Challenge,{title:'My Challenge'})}
+
         style={{
           height: 60,
           width: 70,
@@ -36,15 +44,16 @@ const Profile: React.FC<Props> = props => {
             textAlign: 'center',
             color: color.black,
           }}>
-          My Challange
+          My Challenge
         </Text>
-      </View>
+      </Pressable>
     );
   };
 
   const renderAcceptChallangeButton = () => {
     return (
-      <View
+      <Pressable
+      onPress={()=>Navigator.setPush(props.componentId, screenName.Challenge,{title:'Accepted Challenge'})}
         style={{
           height: 60,
           width: 70,
@@ -68,15 +77,16 @@ const Profile: React.FC<Props> = props => {
             textAlign: 'center',
             color: color.black,
           }}>
-          Accepted Challange
+          Accepted Challenge
         </Text>
-      </View>
+      </Pressable>
     );
   };
 
   const renderRatingButton = () => {
     return (
-      <View
+      <Pressable
+      onPress={()=>Navigator.setPush(props.componentId, screenName.Comments)}
         style={{
           height: 60,
           width: 70,
@@ -102,7 +112,7 @@ const Profile: React.FC<Props> = props => {
           }}>
           Rating
         </Text>
-      </View>
+      </Pressable>
     );
   };
   return (
@@ -111,7 +121,9 @@ const Profile: React.FC<Props> = props => {
       rightIcon={require('@images/setting-white.png')}
       padding={0}
       paddingHorizontal={0}
-      isHideBack
+      title={'Profile'}
+      isHideBack={!propsData?.isBack}
+      prevScreenName={propsData?.backTitle ?? ''}
       rightIconPress={() => {
         Navigator.setPush(props.componentId, screenName.Setting);
       }}>

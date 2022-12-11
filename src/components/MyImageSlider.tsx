@@ -25,7 +25,7 @@ const MyImageSlider: React.FC<Props> = (props) => {
             // onItemChanged={onItemChanged}
             caroselImageContainerStyle={{
                 borderRadius: 10,
-                backgroundColor: 'green',
+                // backgroundColor: 'green',
                 height: 200,
                 marginTop: 10,
                 //  width:375,
