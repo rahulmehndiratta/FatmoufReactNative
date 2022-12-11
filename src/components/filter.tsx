@@ -12,6 +12,7 @@ import {color, fontFamily, fontSize} from '@styles';
 import {Utils} from '@Utils';
 import CustomButton from './CustomButton';
 import ChildItem from './CustomSlider/ChildItem';
+import ColseModal from './ColseModal';
 interface Props {
   visible: any;
   inVisible: any;
@@ -148,6 +149,11 @@ const Filter: React.FC<Props> = (props: any) => {
       transparent={true}
       visible={visible}>
       <View style={styles.modalContainerView}>
+        <ColseModal
+          onPress={() => {
+            inVisible();
+          }}
+        />
         <View
           style={{
             width: '100%',
@@ -204,7 +210,9 @@ const Filter: React.FC<Props> = (props: any) => {
             }}>
             <CustomButton
               title="Reset"
-              onPress={() => {}}
+              onPress={() => {
+                inVisible();
+              }}
               width={'45%'}
               boderRadius={5}
               backgroundColor={color.red}

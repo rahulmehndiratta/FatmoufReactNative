@@ -6,6 +6,7 @@ import MyTextInput from './MyTextInput';
 import {color, fontFamily} from '@styles';
 import OutLineButton from './outLineButton';
 import CustomTextInput from './CustomTextInput';
+import ColseModal from './ColseModal';
 interface Props {
   visible: any;
   inVisible: any;
@@ -25,6 +26,11 @@ const AddMoneyModal: React.FC<Props> = (props: any) => {
       animationType="slide"
       transparent={true}>
       <View style={styles.centeredView}>
+        <ColseModal
+          onPress={() => {
+            inVisible();
+          }}
+        />
         <View style={styles.modalView}>
           <Text>Please enter amount:</Text>
           <CustomTextInput
@@ -75,7 +81,7 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    // alignItems: 'center',
     backgroundColor: 'rgba(100, 100, 100, 0.5)',
   },
   modalView: {
@@ -83,7 +89,7 @@ const styles = StyleSheet.create({
     padding: Utils.calculateHeight(10),
     borderRadius: 10,
     width: '85%',
-    // alignItems: 'center',
+    alignSelf: 'center',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

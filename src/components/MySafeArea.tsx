@@ -32,6 +32,7 @@ export interface Props {
   rightIconPress?: null | ((event: GestureResponderEvent) => void) | undefined;
   prevScreenName?: string;
   paddingHorizontal?: any;
+  tintColor?:any
 }
 
 const MySafeArea: React.FC<Props> = props => {
@@ -53,6 +54,7 @@ const MySafeArea: React.FC<Props> = props => {
     centerIcon,
     prevScreenName,
     paddingHorizontal,
+    tintColor
   } = props;
 
   const _scrollRender = () => {
@@ -104,6 +106,7 @@ const MySafeArea: React.FC<Props> = props => {
           rightIconPress={rightIconPress}
           centerIcon={centerIcon}
           prevScreenName={prevScreenName}
+          tintColor={tintColor}
         />
       )}
       {_scrollRender()}
