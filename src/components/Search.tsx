@@ -3,8 +3,12 @@ import React, {useState} from 'react';
 import MyTextInput from './MyTextInput';
 import {Utils} from '@Utils';
 import {color} from '@styles';
-
-const Search = () => {
+interface Props {
+  iconColor?: any;
+  backgroundColor?: any;
+}
+const Search: React.FC<Props> = (props: any) => {
+  const {iconColor, backgroundColor} = props;
   const [value, setValue] = useState('');
   return (
     <MyTextInput
@@ -16,8 +20,8 @@ const Search = () => {
       height={40}
       placeholder={'Search'}
       onChangeText={(text: any) => setValue(text)}
-      backgroundColor={color.grayText}
-      iconColor={'gray'}
+      backgroundColor={backgroundColor ?? color.grayText}
+      iconColor={iconColor ?? 'gray'}
     />
   );
 };

@@ -13,13 +13,15 @@ import {Utils} from '@Utils';
 import CustomButton from './CustomButton';
 import ChildItem from './CustomSlider/ChildItem';
 import ColseModal from './ColseModal';
+import Search from './Search';
 interface Props {
   visible: any;
   inVisible: any;
   item: any;
+  fromCompetitve?: boolean;
 }
 const Filter: React.FC<Props> = (props: any) => {
-  const {visible, inVisible, item} = props;
+  const {visible, inVisible, item, fromCompetitve} = props;
   const [selectItem, setSelectItem] = useState(0);
   const [filterValue, setFilterValue] = useState([]);
   const [selectFilterValue, setSelectFilterValue] = useState(0);
@@ -129,6 +131,9 @@ const Filter: React.FC<Props> = (props: any) => {
             }}>
             Filter & Sort
           </Text>
+          <View style={{paddingHorizontal: Utils.calculateHeight(10)}}>
+            <Search backgroundColor={color.white} />
+          </View>
           <View
             style={{
               flexDirection: 'row',

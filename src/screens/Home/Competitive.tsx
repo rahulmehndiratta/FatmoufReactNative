@@ -128,6 +128,7 @@ const Competitive: React.FC<Props> = props => {
         visible={modalVisible}
         inVisible={() => setModalVisible(false)}
         item={filterItem}
+        fromCompetitve={true}
         // imageDataSend={imagefromfeedback}
         // status={isChecked ? '1' : '0'}
       />
