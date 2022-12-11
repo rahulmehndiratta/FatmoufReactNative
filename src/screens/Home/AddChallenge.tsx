@@ -144,25 +144,55 @@ const AddChallenge: React.FC<Props> = props => {
 
         {renderStartAndEndDate()}
         <Text style={styles.heading}>Description</Text>
-        <MyTextInput
+
+        <TextInput
           value={description}
-          // leftIcon={require('@images/email.png')}
-          marginTop={Utils.calculateHeight(20)}
+          multiline={true}
+          numberOfLines={4}
+          onChangeText={text => {
+            setDescription(text);
+          }}
+          style={{
+            height: Utils.calculateHeight(100),
+            borderColor: color.boderColor,
+            borderWidth: 1,
+            marginTop: 10,
+            borderRadius: 5,
+            marginHorizontal: Utils.calculateWidth(20),
+            textAlignVertical: 'top',
+            // width: '100%',
+          }}
           placeholder={'Description'}
-          keyboardType={'email-address'}
-          onChangeText={text => setDescription(text)}
         />
 
         <Text style={styles.heading}>Favour</Text>
-        <MyTextInput
+        {/* <MyTextInput
           value={favour}
           // leftIcon={require('@images/email.png')}
           marginTop={Utils.calculateHeight(20)}
           placeholder={'Favour'}
-          keyboardType={'email-address'}
           onChangeText={text => setFavour(text)}
+        /> */}
+        <TextInput
+          value={favour}
+          multiline={true}
+          numberOfLines={4}
+          onChangeText={text => {
+            setFavour(text);
+          }}
+          style={{
+            height: Utils.calculateHeight(100),
+            borderColor: color.boderColor,
+            borderWidth: 1,
+            marginTop: 10,
+            borderRadius: 5,
+            marginHorizontal: Utils.calculateWidth(20),
+            textAlignVertical: 'top',
+            // width: '100%',
+          }}
+          placeholder={'Favour'}
+          keyboardType={'email-address'}
         />
-
         <View
           style={{
             flexDirection: 'row',
