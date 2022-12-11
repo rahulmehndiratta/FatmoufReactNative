@@ -5,22 +5,26 @@ import {color, fontFamily, fontSize} from '@styles';
 import {Utils} from '@Utils';
 import ColseModal from './ColseModal';
 import CustomButton from './CustomButton';
+import Divider from "@components/Divider";
+
 interface Props {
   visible: any;
   inVisible: any;
   item: any;
   onPress: any;
 }
+
 const ChatModal: React.FC<Props> = (props: any) => {
   const {visible, inVisible, item, onPress} = props;
+
   const renderItem = (item: any, index: any) => {
     return (
       <Pressable
         style={{
           flex: 1,
-          borderBottomWidth: 1,
           width: '100%',
-          padding: 5,
+          padding: 12,
+          borderBottomWidth: 1,
           borderBottomColor: color.grayText,
         }}
         onPress={() => {
@@ -30,8 +34,8 @@ const ChatModal: React.FC<Props> = (props: any) => {
           style={{
             textAlign: 'center',
             fontFamily: fontFamily.Regular,
-            fontSize: fontSize.size_22,
-            color: color.blue,
+            fontSize: fontSize.size_16,
+            color: color.persianBlue,
           }}>
           {item.value}
         </Text>
@@ -50,21 +54,17 @@ const ChatModal: React.FC<Props> = (props: any) => {
         <View
           style={{
             width: '100%',
-            // height: '40%',
             backgroundColor: color.white,
-            // paddingBottom: 10,
             borderRadius: 10,
-
-            // alignItems: 'center',
-            // padding: 10,
           }}>
           <Text
             style={{
               textAlign: 'center',
               marginVertical: Utils.calculateHeight(15),
             }}>
-            Please Choose any option
+            Please Select an Option
           </Text>
+          <Divider borderColor={color.grayText}/>
           <FlatList
             data={item}
             renderItem={({item, index}) => renderItem(item, index)}
@@ -72,13 +72,16 @@ const ChatModal: React.FC<Props> = (props: any) => {
         </View>
         <CustomButton
           title="Cancel"
+          height={50}
+          boderRadius={7}
           backgroundColor={color.white}
-          textColor={color.blue}
-          textSize={fontSize.size_22}
+          textColor={color.persianBlue}
+          textSize={fontSize.size_16}
           onPress={() => {
             inVisible();
           }}
           marginTop={Utils.calculateHeight(10)}
+          marginBottom={Utils.calculateHeight(10)}
         />
       </View>
     </Modal>

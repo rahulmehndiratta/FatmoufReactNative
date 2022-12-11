@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Alert, FlatList, StyleSheet, Text, TextInput, View} from 'react-native';
 import React, {useState} from 'react';
 import {NavigationComponentProps} from 'react-native-navigation';
 import MySafeArea from '@components/MySafeArea';
@@ -6,6 +6,8 @@ import ClickableImage from '@components/ClickableImage';
 import {color, fontFamily, fontSize} from '@styles';
 import {Utils} from '@Utils';
 import ChatModal from '@components/ChatModal';
+import {Navigator} from '@Navigator';
+import {screenName} from '@screenName';
 
 export interface Props extends NavigationComponentProps {
   propsData: any;
@@ -154,7 +156,14 @@ const Chat: React.FC<Props> = props => {
         visible={chatModal}
         inVisible={() => setChatModal(false)}
         item={chatModalItem}
-        onPress={() => {}}
+        onPress={id => {
+          setChatModal(false)
+          if (id === 3 || id === 4) {
+            Navigator.setPush(props.componentId, screenName.GroupDetails);
+          } else {
+            Alert.alert('Alert!', 'Service coming soon..');
+          }
+        }}
       />
     </MySafeArea>
   );

@@ -7,6 +7,7 @@ export const color = {
   celticBlue: '#285ADB',
   egyptianBlue: '#13389C',
   btnColor:'#8C55AA',
+  persianBlue:'#1B40C4',
 
   // Error Background Color Please do not change this color........
   default: '#a8a4a3',
