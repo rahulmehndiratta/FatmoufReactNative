@@ -5,7 +5,10 @@ import { Utils } from '@Utils';
 import { WebView } from 'react-native-webview';
 import { color, fontSize } from '@styles';
 import { screenName } from '@screenName';
-interface Props { }
+import { NavigationComponentProps } from 'react-native-navigation';
+export interface Props extends NavigationComponentProps {
+
+}
 const WebViewPage: React.FC<Props> = (props: any) => {
   const [email, setEmail] = useState('');
   useEffect(() => {
@@ -15,10 +18,14 @@ const WebViewPage: React.FC<Props> = (props: any) => {
 
 
   return (
-    <WebView
-      source={{ uri: props.propsData?.url ?? 'https://www.google.com' }}
-      style={{ marginTop: 20 }}
-    />
+
+    <MySafeArea componentId={props.componentId} paddingHorizontal={0}>
+      <WebView
+        source={{ uri: props.propsData?.url ?? 'https://www.google.com' }}
+        style={{ marginTop: 20 }}
+      />
+    </MySafeArea>
+
   );
 };
 

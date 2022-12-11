@@ -57,11 +57,12 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
   };
   return (
     <MySafeArea
-      title="Competitive Detail"
+      title="Competitive Details"
       componentId={props.componentId}
       prevScreenName={'Back'}
       padding={Utils.calculateHeight(20)}
       isScroll>
+
       <View style={styles.container}>
         <Text style={styles.dateStr}>15 oct 2022</Text>
         <View style={styles.headerContainer}>
@@ -114,14 +115,14 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
             />
           </Pressable>
         </View>
-        <Text style={{alignSelf: 'flex-start', color: color.appBar}}>
+        <Text style={{alignSelf: 'flex-start', color: color.appBar,marginTop:5}}>
           Entry Fees:200
         </Text>
         <View style={{height: 200}}>
           <MyImageSlider />
         </View>
 
-        <Text style={[styles.dateStr, {alignSelf: 'flex-start'}]}>
+        <Text style={[styles.dateStr, {alignSelf: 'flex-start',marginTop:10}]}>
           Start on 15 oct 2022 End on 17 Nov 2022
         </Text>
         <View
@@ -158,8 +159,8 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
             justifyContent: 'space-between',
           }}>
           <View>
-            <Text>Challenge Description</Text>
-            <Text>Ch</Text>
+            <Text style={{fontSize:fontSize.size_12,fontFamily:fontFamily.SemiBold,color:color.black}}>Challenge Description</Text>
+            <Text>i like central to will it all!!</Text>
           </View>
           <View
             style={{
@@ -237,8 +238,8 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   profileImage: {
-    width: Utils.calculateWidth(60),
-    height: Utils.calculateHeight(60),
+    width: 40,
+    height: 40,
     borderRadius: 40,
     alignSelf: 'flex-start', // backgroundColor: 'red',
   },

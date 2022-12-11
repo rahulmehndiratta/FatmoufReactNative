@@ -7,7 +7,9 @@ import Search from '@components/Search';
 import OutLineButton from '@components/outLineButton';
 import {Navigator} from '@Navigator';
 import {screenName} from '@screenName';
+
 interface Props {}
+
 const ViewParticipate: React.FC<Props> = (props: any) => {
   const renderItem = (item: any, index: any) => {
     return (
@@ -68,7 +70,7 @@ const ViewParticipate: React.FC<Props> = (props: any) => {
       title="Participant List"
       componentId={props.componentId}
       prevScreenName={'Back'}
-      paddingHorizontal={0}>
+      paddingHorizontal={10}>
       <View
         style={{
           flex: 1,
@@ -104,10 +106,11 @@ const styles = StyleSheet.create({
     marginTop: Utils.calculateHeight(20),
     shadowColor: color.black,
     shadowOffset: {
-      width: 2,
-      height: 2,
+      width: 0,
+      height: 0,
     },
-    shadowOpacity: 1,
+    margin: 1,
+    // shadowOpacity: 1,
     shadowRadius: 20,
     elevation: 10,
     padding: 10,

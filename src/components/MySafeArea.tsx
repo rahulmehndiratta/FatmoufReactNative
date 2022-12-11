@@ -30,9 +30,11 @@ export interface Props {
   sourceBg?: ImageSourcePropType;
   centerIcon?: ImageSourcePropType;
   rightIconPress?: null | ((event: GestureResponderEvent) => void) | undefined;
+  rightTitlePress?: null | ((event: GestureResponderEvent) => void) | undefined;
   prevScreenName?: string;
   paddingHorizontal?: any;
   tintColor?:any
+  rightTitle?:any
 }
 
 const MySafeArea: React.FC<Props> = props => {
@@ -50,11 +52,13 @@ const MySafeArea: React.FC<Props> = props => {
     padding,
     leftIconPress,
     rightIconPress,
+    rightTitlePress,
     sourceBg,
     centerIcon,
     prevScreenName,
     paddingHorizontal,
-    tintColor
+    tintColor,
+    rightTitle
   } = props;
 
   const _scrollRender = () => {
@@ -106,6 +110,8 @@ const MySafeArea: React.FC<Props> = props => {
           rightIconPress={rightIconPress}
           centerIcon={centerIcon}
           prevScreenName={prevScreenName}
+          rightTitlePress={rightTitlePress}
+          rightTitle={rightTitle}
           tintColor={tintColor}
         />
       )}

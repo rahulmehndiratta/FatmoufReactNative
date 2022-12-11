@@ -24,6 +24,7 @@ import Wallet from 'screens/Home/Wallet';
 import Withdrawal from 'screens/Home/Withdrawal';
 import BlockAccount from 'screens/Home/BlockAccount';
 import AddActivity from 'screens/Home/AddActivity';
+import Challenge from 'screens/Home/Challenge';
 
 export const screenName = {
   Splash: 'Splash',
@@ -51,6 +52,7 @@ export const screenName = {
   Withdrawal: 'Withdrawal',
   BlockAccount: 'BlockAccount',
   AddActivity: 'AddActivity',
+  Challenge: 'Challenge',
 };
 
 export function registerScreens() {
@@ -86,8 +88,6 @@ export function registerScreens() {
   Navigation.registerComponent(screenName.Withdrawal, () => Withdrawal);
   Navigation.registerComponent(screenName.BlockAccount, () => BlockAccount);
   Navigation.registerComponent(screenName.AddActivity, () => AddActivity);
-   Navigation.registerComponent(
-    screenName.Comments,
-    () => Comments,
-  );
+   Navigation.registerComponent(screenName.Comments,() => Comments,);
+   Navigation.registerComponent(screenName.Challenge,() => Challenge,);
 }

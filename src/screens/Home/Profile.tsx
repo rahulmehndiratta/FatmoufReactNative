@@ -14,11 +14,13 @@ export interface Props extends NavigationComponentProps {
 const Profile: React.FC<Props> = props => {
   const {propsData} = props;
   useEffect(() => {
-    console.log('propsData', props);
+    console.log('propsData', propsData);
   }, [props]);
   const renderButton = () => {
     return (
-      <View
+      <Pressable
+      onPress={()=>Navigator.setPush(props.componentId, screenName.Challenge,{title:'My Challenge'})}
+
         style={{
           height: 60,
           width: 70,
@@ -42,15 +44,16 @@ const Profile: React.FC<Props> = props => {
             textAlign: 'center',
             color: color.black,
           }}>
-          My Challange
+          My Challenge
         </Text>
-      </View>
+      </Pressable>
     );
   };
 
   const renderAcceptChallangeButton = () => {
     return (
-      <View
+      <Pressable
+      onPress={()=>Navigator.setPush(props.componentId, screenName.Challenge,{title:'Accepted Challenge'})}
         style={{
           height: 60,
           width: 70,
@@ -74,9 +77,9 @@ const Profile: React.FC<Props> = props => {
             textAlign: 'center',
             color: color.black,
           }}>
-          Accepted Challange
+          Accepted Challenge
         </Text>
-      </View>
+      </Pressable>
     );
   };
 
@@ -118,8 +121,9 @@ const Profile: React.FC<Props> = props => {
       rightIcon={require('@images/setting-white.png')}
       padding={0}
       paddingHorizontal={0}
-      isHideBack={propsData ? false : true}
-      prevScreenName={propsData ?? ''}
+      title={'Profile'}
+      isHideBack={!propsData?.isBack}
+      prevScreenName={propsData?.backTitle ?? ''}
       rightIconPress={() => {
         Navigator.setPush(props.componentId, screenName.Setting);
       }}>

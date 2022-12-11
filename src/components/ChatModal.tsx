@@ -49,7 +49,7 @@ const ChatModal: React.FC<Props> = (props: any) => {
         <View
           style={{
             width: '100%',
-            height: '40%',
+            // height: '40%',
             backgroundColor: color.white,
             paddingBottom: 20,
             // alignItems: 'center',
