@@ -34,7 +34,12 @@ const Filter: React.FC<Props> = (props: any) => {
           height: 70,
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: selectItem == item.id ? color.filter : color.white,
+          backgroundColor:
+            selectItem == item.id
+              ? color.filter
+              : fromCompetitve
+              ? color.filterView
+              : color.white,
           // marginTop: index == 0 ? 0 : 20,
           borderBottomColor: color.boderColor,
           borderBottomWidth: 1,
@@ -131,8 +136,12 @@ const Filter: React.FC<Props> = (props: any) => {
             }}>
             Filter & Sort
           </Text>
-          <View style={{paddingHorizontal: Utils.calculateHeight(10)}}>
-            <Search backgroundColor={color.white} />
+          <View
+            style={{
+              paddingHorizontal: Utils.calculateHeight(10),
+              marginBottom: Utils.calculateHeight(20),
+            }}>
+            {fromCompetitve && <Search backgroundColor={color.white} />}
           </View>
           <View
             style={{
@@ -143,7 +152,7 @@ const Filter: React.FC<Props> = (props: any) => {
             <View
               style={{
                 // flex: 1,
-                backgroundColor: color.white,
+                // backgroundColor: color.white,
                 height: '100%',
                 width: '48%',
               }}>
@@ -155,7 +164,7 @@ const Filter: React.FC<Props> = (props: any) => {
             <View
               style={{
                 // flex: 1,
-                backgroundColor: color.white,
+                // backgroundColor: color.white,
                 height: '100%',
                 width: '48%',
               }}>
