@@ -1,14 +1,14 @@
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
-import MySafeArea from '@components/MySafeArea';
-import {Utils} from '@Utils';
-import TextFiled from '@components/TextFiled';
-import MyTextInput from '@components/MyTextInput';
-import ClickableText from '@components/ClickableText';
-import {Navigator} from '@Navigator';
-import CustomButton from '@components/CustomButton';
-import {color, fontSize} from '@styles';
-import {screenName} from '@screenName';
+import { Image, Pressable, StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import MySafeArea from "@components/MySafeArea";
+import { Utils } from "@Utils";
+import MyTextInput from "@components/MyTextInput";
+import ClickableText from "@components/ClickableText";
+import { Navigator } from "@Navigator";
+import CustomButton from "@components/CustomButton";
+import { color, fontSize } from "@styles";
+import { screenName } from "@screenName";
+
 interface Props {}
 const Login: React.FC<Props> = (props: any) => {
   const [email, setEmail] = useState('');
@@ -20,8 +20,8 @@ const Login: React.FC<Props> = (props: any) => {
           source={image}
           resizeMode={'contain'}
           style={{
-            width: Utils.calculateWidth(50),
-            height: Utils.calculateHeight(60),
+            width: 40,
+            height: 40,
           }}
         />
       </Pressable>
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-evenly',
 
-    width: '80%',
+    width: '50%',
   },
   socialLoginIcon: {
     borderRadius: 50,
@@ -133,11 +133,11 @@ const styles = StyleSheet.create({
     shadowColor: color.black,
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 0,
     },
     shadowOpacity: 1,
     shadowRadius: 10,
-    elevation: 5,
+    elevation: 3,
     // marginLeft: Utils.calculateWidth(20),
   },
 });

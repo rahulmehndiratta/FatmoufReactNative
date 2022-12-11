@@ -6,8 +6,8 @@ import { ImageBackground } from 'react-native';
 const Splash = () => {
   useEffect(() => {
     setTimeout(() => {
-      // Navigator.setRoot(screenName.Login);
-      Navigator.setHome()
+      Navigator.setRoot(screenName.Login);
+      // Navigator.setHome()
     }, 2000);
   }, []);
 
