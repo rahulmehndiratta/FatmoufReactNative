@@ -45,7 +45,9 @@ const Competitive: React.FC<Props> = props => {
       componentId={props.componentId}
       isHideBack
       title="Competitive"
-      rightIcon={require('@images/setting-white.png')}>
+      rightIcon={require('@images/setting-white.png')}
+      rightIconPress={()=>Navigator.setPush(props.componentId, screenName.Setting)}
+      >
       <View style={styles.rowContainer}>
         <FlatList
           data={data}

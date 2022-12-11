@@ -110,11 +110,11 @@ const CompetitiveItems: React.FC<Props> = (props: any) => {
           Rocket to win it all
         </Text>
         <ClickableImage
-          source={require('@images/menu-dots.png')}
-          style={{height: 20, width: 10}}
+          source={require('@images/expand.png')}
+          style={{height: 20, width: 15}}
           // containerStyle={{ alignSelf: 'flex-end' }}
           resizeMode="contain"
-          onPress={() => Alert.alert('Alert!', 'this is testing message')}
+          onPress={() => Alert.alert('Alert!', 'this is testing ')}
         />
       </View>
       <Text style={{marginTop: 10}}>i like Centeral to will it all!</Text>
