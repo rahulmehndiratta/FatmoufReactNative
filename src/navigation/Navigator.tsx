@@ -328,7 +328,7 @@ export const Navigator = {
         titleDisplayMode: 'alwaysShow',
       },
       statusBar: {
-        backgroundColor: color.black,
+        backgroundColor: color.appBar,
         // style: 'light',
       },
       layout: {orientation: ['portrait']},

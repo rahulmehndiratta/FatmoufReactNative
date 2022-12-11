@@ -56,7 +56,16 @@ const CompetitiveItems: React.FC<Props> = (props: any) => {
         Navigator.setPush(componentId, screenName.CompetitiveDetail)
       }>
       <View style={styles.nameAndMoreTopView}>
-        <View style={styles.imageAndNameView}>
+        <Pressable style={styles.imageAndNameView}
+        onPress={()=>{
+         const sendData={
+            isBack:false,
+            backTitle:'Competitive'
+          }
+          Navigator.setPush(props.componentId, screenName.Profile,{isBack:true,
+            backTitle:'Competitive'})
+        }}
+        >
           <Image
             resizeMode="contain"
             style={{
@@ -78,7 +87,7 @@ const CompetitiveItems: React.FC<Props> = (props: any) => {
             }}>
             Manurohit Shakywar
           </Text>
-        </View>
+        </Pressable>
         <View style={{flexGrow: 0, alignItems: 'center'}}>
           <Text>26 Nov 2022</Text>
           <ClickableImage

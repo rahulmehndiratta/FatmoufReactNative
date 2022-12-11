@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     marginBottom: Utils.calculateHeight(15),
   },
   btnContainer: {
-    backgroundColor: color.appBar,
+    backgroundColor: color.btnColor,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 5,
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
   tvBtnTitle: {
     color: color.white,
     fontFamily: fontFamily.Medium,
-    fontSize: fontSize.size_14,
+    fontSize: fontSize.size_12,
   },
   addIconContainer: {
     position: 'absolute',

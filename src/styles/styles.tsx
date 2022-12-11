@@ -6,6 +6,7 @@ export const color = {
   royalBlue: '#295FE7',
   celticBlue: '#285ADB',
   egyptianBlue: '#13389C',
+  btnColor:'#8C55AA',
 
   // Error Background Color Please do not change this color........
   default: '#a8a4a3',
@@ -16,9 +17,9 @@ export const color = {
   midWhite: '#EAEDF2',
   lightGreen: '#3AD49A',
   coca: '#3B2626',
-  appBar: '#7a3798',
+  appBar: '#7B359F',
   select: '#8f52ad',
-  bottomBar: '#5d449f',
+  bottomBar: '#7D439C',
   boderColor: '#f2f2f2',
   grayText: '#c8c8c8',
   red: '#ff2c55',

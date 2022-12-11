@@ -20,11 +20,13 @@ export interface Props {
   leftIcon?: any;
   leftIconPress?: any;
   rightIconPress?: null | ((event: GestureResponderEvent) => void) | undefined;
+  rightTitlePress?: null | ((event: GestureResponderEvent) => void) | undefined;
   titleColor?: string;
   componentId: any;
   centerIcon?: ImageSourcePropType;
   prevScreenName?: any;
   tintColor?: any;
+  rightTitle?: any;
 }
 const AppBar: React.FC<Props> = props => {
   let {
@@ -37,6 +39,8 @@ const AppBar: React.FC<Props> = props => {
     componentId,
     leftIconPress,
     rightIconPress,
+    rightTitle,
+    rightTitlePress,
     centerIcon,
     prevScreenName,
     tintColor,
@@ -52,8 +56,8 @@ const AppBar: React.FC<Props> = props => {
       }}>
       <View
         style={{
-          // flex: 2,
-          justifyContent: 'center',
+          flex: 1,
+          justifyContent: 'flex-start',
           alignItems: 'center',
           flexDirection: 'row',
           // backgroundColor: 'red',
@@ -74,7 +78,7 @@ const AppBar: React.FC<Props> = props => {
         )}
       </View>
 
-      <View style={{flex: 8, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         {centerIcon && (
           <Image
             resizeMode="cover"
@@ -88,7 +92,7 @@ const AppBar: React.FC<Props> = props => {
             style={{
               color: titleColor ?? color.white,
               fontFamily: fontFamily.Medium,
-              fontSize: fontSize.size_20,
+              fontSize: fontSize.size_16,
             }}>
             {title ?? ''}
           </Text>
@@ -97,11 +101,12 @@ const AppBar: React.FC<Props> = props => {
 
       <View
         style={{
-          flex: 1.5,
+          flex: 1,
           // backgroundColor: 'red',
           justifyContent: 'center',
           alignItems: 'flex-end',
         }}>
+          {rightTitle&&<Text onPress={rightTitlePress}>{rightTitle}</Text>}
         {rightIcon && (
           <Pressable style={{padding: 5}} onPress={rightIconPress}>
             <Image
@@ -128,13 +133,15 @@ const styles = StyleSheet.create({
     shadowColor: '#63F4F766',
   },
   screenName: {
-    fontSize: fontSize.size_16,
+    fontSize: fontSize.size_14,
     color: color.white,
+    fontFamily:fontFamily.Medium
   },
   tvBackTitle: {
     fontFamily: fontFamily.Medium,
     fontSize: fontSize.size_14,
     color: color.white,
     textDecorationLine: 'underline',
+    textDecorationColor:'red'
   },
 });
