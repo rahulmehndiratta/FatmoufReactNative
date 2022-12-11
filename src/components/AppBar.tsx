@@ -78,7 +78,7 @@ const AppBar: React.FC<Props> = props => {
         )}
       </View>
 
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={{flexGrow:0 , justifyContent: 'center', alignItems: 'center'}}>
         {centerIcon && (
           <Image
             resizeMode="cover"
@@ -106,7 +106,7 @@ const AppBar: React.FC<Props> = props => {
           justifyContent: 'center',
           alignItems: 'flex-end',
         }}>
-          {rightTitle&&<Text onPress={rightTitlePress}>{rightTitle}</Text>}
+        {rightTitle && <Text  style={styles.tvBackTitle} onPress={rightTitlePress}>{rightTitle}</Text>}
         {rightIcon && (
           <Pressable style={{padding: 5}} onPress={rightIconPress}>
             <Image
@@ -135,13 +135,13 @@ const styles = StyleSheet.create({
   screenName: {
     fontSize: fontSize.size_14,
     color: color.white,
-    fontFamily:fontFamily.Medium
+    fontFamily: fontFamily.Medium,
   },
   tvBackTitle: {
     fontFamily: fontFamily.Medium,
     fontSize: fontSize.size_14,
     color: color.white,
     textDecorationLine: 'underline',
-    textDecorationColor:'red'
+    textDecorationColor: 'red',
   },
 });

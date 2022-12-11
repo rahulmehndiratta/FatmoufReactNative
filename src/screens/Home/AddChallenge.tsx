@@ -1,4 +1,5 @@
 import {
+  Alert,
   FlatList,
   Pressable,
   ScrollView,
@@ -94,10 +95,9 @@ const AddChallenge: React.FC<Props> = props => {
     <MySafeArea
       componentId={props.componentId}
       title="Add Challenge"
-      rightIcon={require('@images/setting-white.png')}
-      rightIconPress={() =>
-        Navigator.setPush(props.componentId, screenName.Setting)
-      }>
+      prevScreenName={'Cancel'}
+      rightTitle={'Post'}
+      rightTitlePress={() => Alert.alert('Alert!', 'Coming soon')}>
       <View style={styles.container}>
         <Tabs
           tabs={['Public', 'Private']}
