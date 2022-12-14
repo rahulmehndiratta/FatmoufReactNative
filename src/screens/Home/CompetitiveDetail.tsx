@@ -5,6 +5,7 @@ import {
   Image,
   Pressable,
   Dimensions,
+  FlatList,
 } from 'react-native';
 import React, {useRef, useState} from 'react';
 import MySafeArea from '@components/MySafeArea';
@@ -22,18 +23,44 @@ interface Props {}
 const CompetitiveDetail: React.FC<Props> = (props: any) => {
   const [modalVisible, setModalVisible] = useState(false);
 
-  const icon = (onPress: any, image: any, title: any) => {
+  const iconDetails = [
+    {
+      id: 0,
+      title: 'View Participate',
+      icon: require('@images/view-participants.png'),
+    },
+    {
+      id: 1,
+      title: 'View Activity',
+      icon: require('@images/view-activity.png'),
+    },
+    {
+      id: 2,
+      title: 'Rating',
+      icon: require('@images/star.png'),
+    },
+  ];
+  const icon = (item: any, index: any) => {
     return (
       <Pressable
-        onPress={onPress}
+        onPress={() => {
+          if (item.id == 0) {
+            Navigator.setPush(props.componentId, screenName.ViewParticipate);
+          } else if (item?.id == 1) {
+            Navigator.setPush(props.componentId, screenName.ViewActivity);
+          } else if (item?.id == 2) {
+            setModalVisible(true);
+          }
+        }}
         style={{
           alignItems: 'center',
           marginTop: 10,
           // backgroundColor: 'green',
           width: Utils.calculateWidth(100),
+          marginLeft: Utils.calculateWidth(10),
         }}>
         <Image
-          source={image}
+          source={item.icon}
           resizeMode={'contain'}
           style={{
             width: 40,
@@ -49,7 +76,7 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
             fontSize: fontSize.size_12,
           }}>
           <Text style={{alignSelf: 'flex-start', color: color.black}}>
-            {title}
+            {item.title}
           </Text>
         </Text>
       </Pressable>
@@ -62,7 +89,6 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
       prevScreenName={'Back'}
       padding={Utils.calculateHeight(20)}
       isScroll>
-
       <View style={styles.container}>
         <Text style={styles.dateStr}>15 oct 2022</Text>
         <View style={styles.headerContainer}>
@@ -115,14 +141,16 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
             />
           </Pressable>
         </View>
-        <Text style={{alignSelf: 'flex-start', color: color.appBar,marginTop:5}}>
+        <Text
+          style={{alignSelf: 'flex-start', color: color.appBar, marginTop: 5}}>
           Entry Fees:200
         </Text>
         <View style={{height: 200}}>
           <MyImageSlider />
         </View>
 
-        <Text style={[styles.dateStr, {alignSelf: 'flex-start',marginTop:10}]}>
+        <Text
+          style={[styles.dateStr, {alignSelf: 'flex-start', marginTop: 10}]}>
           Start on 15 oct 2022 End on 17 Nov 2022
         </Text>
         <View
@@ -159,7 +187,14 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
             justifyContent: 'space-between',
           }}>
           <View>
-            <Text style={{fontSize:fontSize.size_12,fontFamily:fontFamily.SemiBold,color:color.black}}>Challenge Description</Text>
+            <Text
+              style={{
+                fontSize: fontSize.size_12,
+                fontFamily: fontFamily.SemiBold,
+                color: color.black,
+              }}>
+              Challenge Description
+            </Text>
             <Text>i like central to will it all!!</Text>
           </View>
           <View
@@ -173,14 +208,14 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
             <Text style={{color: color.white}}>Fat Mouf</Text>
           </View>
         </View>
-        <View
+        {/* <View
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
             width: '60%',
             flexWrap: 'wrap',
-          }}>
-          {icon(
+          }}> */}
+        {/* {icon(
             () => {
               Navigator.setPush(props.componentId, screenName.ViewParticipate);
             },
@@ -200,9 +235,13 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
             },
             require('@images/star.png'),
             'Rating',
-          )}
-        </View>
-
+          )} */}
+        {/* </View> */}
+        <FlatList
+          data={iconDetails}
+          numColumns={2}
+          renderItem={({item, index}) => icon(item, index)}
+        />
         <ReViewModal
           visible={modalVisible}
           invisible={() => setModalVisible(false)}

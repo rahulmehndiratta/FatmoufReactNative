@@ -69,6 +69,7 @@ const AddChallenge: React.FC<Props> = props => {
       // width: 300,
       // height: 400,
       cropping: true,
+      
     }).then((image: any) => {
       setImages(image);
     });
