@@ -1,6 +1,7 @@
 import {
   Alert,
   FlatList,
+  Image,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -75,8 +76,42 @@ const AddChallenge: React.FC<Props> = props => {
     });
   };
 
+  const icon = (image: any, title: any) => {
+    return (
+      <Pressable
+        onPress={() =>
+          Navigator.setPush(props.componentId, screenName.AddParticipate)
+        }
+        style={{
+          alignItems: 'center',
+          marginTop: 20,
+          justifyContent: 'center',
+          // backgroundColor: 'green',
+        }}>
+        <Image
+          source={image}
+          resizeMode={'contain'}
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: 50,
+            backgroundColor: color.appBar,
+          }}
+        />
+        <Text
+          style={{
+            color: color.black,
+            fontSize: fontSize.size_12,
+          }}>
+          <Text style={{alignSelf: 'flex-start', color: color.black}}>
+            {title}
+          </Text>
+        </Text>
+      </Pressable>
+    );
+  };
+
   const renderImageItem = (item: any) => {
-    console.log('imageArr', item);
     return (
       <View>
         <ClickableImage
@@ -215,6 +250,10 @@ const AddChallenge: React.FC<Props> = props => {
             renderItem={(item: any) => renderImageItem(item)}
           />
         </View>
+        {privateAndPublic===1&&icon(
+          require('@images/view-participants.png'),
+          'Add Participate',
+        )}
       </View>
     </MySafeArea>
   );
