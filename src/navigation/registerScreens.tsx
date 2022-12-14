@@ -26,6 +26,7 @@ import BlockAccount from 'screens/Home/BlockAccount';
 import AddActivity from 'screens/Home/AddActivity';
 import Challenge from 'screens/Home/Challenge';
 import ViewActivity from '../screens/Home/ViewActivity';
+import AddParticipate from '../screens/Home/AddParticipate';
 
 export const screenName = {
   Splash: 'Splash',
@@ -55,6 +56,7 @@ export const screenName = {
   AddActivity: 'AddActivity',
   Challenge: 'Challenge',
   ViewActivity: 'ViewActivity',
+  AddParticipate: 'AddParticipate',
 };
 
 export function registerScreens() {
@@ -90,4 +92,5 @@ export function registerScreens() {
   Navigation.registerComponent(screenName.Comments, () => Comments);
   Navigation.registerComponent(screenName.Challenge, () => Challenge);
   Navigation.registerComponent(screenName.ViewActivity, () => ViewActivity);
+  Navigation.registerComponent(screenName.AddParticipate, () => AddParticipate);
 }
