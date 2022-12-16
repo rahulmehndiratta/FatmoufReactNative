@@ -9,10 +9,10 @@ import {
   Text,
   View,
 } from 'react-native';
-import React, { useRef } from 'react';
+import React, {useRef} from 'react';
 import AppBar from '@components/AppBar';
-import { color, fontSize } from '@styles';
-import { Utils } from '@Utils';
+import {color, fontSize} from '@styles';
+import {Utils} from '@Utils';
 export interface Props {
   children?: React.ReactNode;
   isHideAppBar?: boolean;
@@ -33,8 +33,9 @@ export interface Props {
   rightTitlePress?: null | ((event: GestureResponderEvent) => void) | undefined;
   prevScreenName?: string;
   paddingHorizontal?: any;
-  tintColor?:any
-  rightTitle?:any
+  tintColor?: any;
+  rightTitle?: any;
+  titlePress?: any;
 }
 
 const MySafeArea: React.FC<Props> = props => {
@@ -58,7 +59,8 @@ const MySafeArea: React.FC<Props> = props => {
     prevScreenName,
     paddingHorizontal,
     tintColor,
-    rightTitle
+    rightTitle,
+    titlePress,
   } = props;
 
   const _scrollRender = () => {
@@ -67,8 +69,7 @@ const MySafeArea: React.FC<Props> = props => {
         <View
           style={{
             flex: 1,
-            paddingHorizontal:
-              paddingHorizontal ?? Utils.calculateWidth(10),
+            paddingHorizontal: paddingHorizontal ?? Utils.calculateWidth(10),
           }}>
           {props.children}
         </View>
@@ -83,8 +84,7 @@ const MySafeArea: React.FC<Props> = props => {
       <View
         style={{
           flex: 1,
-          paddingHorizontal: paddingHorizontal
-            ?? Utils.calculateWidth(10),
+          paddingHorizontal: paddingHorizontal ?? Utils.calculateWidth(10),
         }}>
         {props.children}
       </View>
@@ -113,6 +113,7 @@ const MySafeArea: React.FC<Props> = props => {
           rightTitlePress={rightTitlePress}
           rightTitle={rightTitle}
           tintColor={tintColor}
+          titlePress={titlePress}
         />
       )}
       {_scrollRender()}

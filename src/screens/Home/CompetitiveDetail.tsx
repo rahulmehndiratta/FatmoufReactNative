@@ -18,6 +18,7 @@ import {screenName} from '@screenName';
 import ReViewModal from 'screens/Auth/reviewModal';
 import {ImageSlider} from 'react-native-image-slider-banner';
 import MyImageSlider from '@components/MyImageSlider';
+import ClickableImage from '@components/ClickableImage';
 const itemWidth = Dimensions.get('window').width;
 interface Props {}
 const CompetitiveDetail: React.FC<Props> = (props: any) => {
@@ -92,12 +93,33 @@ const CompetitiveDetail: React.FC<Props> = (props: any) => {
       <View style={styles.container}>
         <Text style={styles.dateStr}>15 oct 2022</Text>
         <View style={styles.headerContainer}>
-          <Image
+          {/* <Image
             source={{
               uri: 'https://images.unsplash.com/photo-1568700942090-19dc36fab0c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
             }}
             resizeMode={'contain'}
             style={styles.profileImage}
+          /> */}
+          <ClickableImage
+            onPress={() => {
+              let data = {
+                isBack: true,
+                backTitle: 'Competitve Details',
+                hideTitle:true
+              };
+              Navigator.setPush(props.componentId, screenName.Profile, data);
+            }}
+            resizeMode={'cover'}
+            source={{
+              uri: 'https://images.unsplash.com/photo-1568700942090-19dc36fab0c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+            }}
+            containerStyle={{}}
+            style={{
+              height: 50,
+              width: 50,
+              backgroundColor: 'white',
+              borderRadius: 50,
+            }}
           />
           <View
             style={{

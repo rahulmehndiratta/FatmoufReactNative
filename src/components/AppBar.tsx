@@ -27,6 +27,7 @@ export interface Props {
   prevScreenName?: any;
   tintColor?: any;
   rightTitle?: any;
+  titlePress?: any;
 }
 const AppBar: React.FC<Props> = props => {
   let {
@@ -44,6 +45,7 @@ const AppBar: React.FC<Props> = props => {
     centerIcon,
     prevScreenName,
     tintColor,
+    titlePress,
   } = props;
   return (
     <View
@@ -89,14 +91,16 @@ const AppBar: React.FC<Props> = props => {
         )}
 
         {title && (
-          <Text
-            style={{
-              color: titleColor ?? color.white,
-              fontFamily: fontFamily.Medium,
-              fontSize: fontSize.size_16,
-            }}>
-            {title ?? ''}
-          </Text>
+          <Pressable onPress={titlePress}>
+            <Text
+              style={{
+                color: titleColor ?? color.white,
+                fontFamily: fontFamily.Medium,
+                fontSize: fontSize.size_16,
+              }}>
+              {title ?? ''}
+            </Text>
+          </Pressable>
         )}
       </View>
 
