@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {FlatList, StyleSheet, Text, TextInput, View} from 'react-native';
 import {NavigationComponentProps} from 'react-native-navigation';
 import MySafeArea from '@components/MySafeArea';
@@ -11,9 +11,13 @@ import {Navigator} from '@Navigator';
 import {screenName} from '@screenName';
 
 export interface Props extends NavigationComponentProps {}
-const GroupDetails: React.FC<Props> = props => {
+const GroupDetails: React.FC<Props> = (props: any) => {
   const [groupName, setGroupName] = useState('');
   const [description, setDescriptionText] = useState('');
+
+  useEffect(() => {
+    console.log('Props', props);
+  }, [props]);
 
   const renderMemberItems = () => {
     return (
@@ -30,6 +34,13 @@ const GroupDetails: React.FC<Props> = props => {
           marginBottom: 10,
         }}>
         <ClickableImage
+          onPress={() => {
+            let data = {
+              isBack: true,
+              backTitle: props.propsData ?? 'Group Details',
+            };
+            Navigator.setPush(props.componentId, screenName.Profile, data);
+          }}
           resizeMode={'cover'}
           source={require('@images/participant-challenge.png')}
           containerStyle={{}}
@@ -64,7 +75,10 @@ const GroupDetails: React.FC<Props> = props => {
   };
 
   return (
-    <MySafeArea isScroll title="Group Details" componentId={props.componentId}>
+    <MySafeArea
+      isScroll
+      title={props.propsData ?? 'Group Details'}
+      componentId={props.componentId}>
       {/* <CustomButton
                 onPress={() => {
                     Navigator.setPush(props.componentId, screenName.Chat)
@@ -115,8 +129,31 @@ const GroupDetails: React.FC<Props> = props => {
           width: '100%',
         }}
       />
-
-      <Text style={styles.heading}>Group Members</Text>
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          paddingVertical: 10,
+          // backgroundColor: 'red',
+        }}>
+        <Text style={[styles.heading, {marginTop: 0}]}>Group Members</Text>
+        {props.propsData && (
+          <ClickableImage
+            onPress={() => {
+              Navigator.setPush(props.componentId, screenName.AddParticipate);
+            }}
+            resizeMode={'contain'}
+            source={require('@images/add-participant.png')}
+            containerStyle={{}}
+            style={{
+              height: 30,
+              width: 30,
+              backgroundColor: 'white',
+              borderRadius: 50,
+            }}
+          />
+        )}
+      </View>
       <FlatList
         data={[{}, {}]}
         contentContainerStyle={{marginBottom: 20}}
@@ -132,6 +169,7 @@ const styles = StyleSheet.create({
   heading: {
     color: color.black,
     fontSize: fontSize.size_16,
+    marginRight: 10,
     marginTop: 10,
     fontFamily: fontFamily.Bold,
   },

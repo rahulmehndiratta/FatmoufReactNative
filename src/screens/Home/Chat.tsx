@@ -40,7 +40,7 @@ const Chat: React.FC<Props> = props => {
       value: 'Group Details',
     },
   ];
-  const _renderItems = ({item, index}) => {
+  const _renderItems = (item: any, index: any) => {
     console.log('chatindex', index);
     return (
       <View
@@ -102,11 +102,15 @@ const Chat: React.FC<Props> = props => {
       rightIconPress={() => {
         setChatModal(true);
       }}
+      titlePress={() => {
+        Navigator.setPush(props.componentId, screenName.GroupDetails);
+      }}
+      title={props.propsData?.name}
       tintColor={color.white}>
       <FlatList
         contentContainerStyle={{paddingLeft: 5}}
         data={[1, 2, 3]}
-        renderItem={_renderItems}
+        renderItem={({item, index}) => _renderItems(item, index)}
       />
 
       <View
@@ -156,10 +160,17 @@ const Chat: React.FC<Props> = props => {
         visible={chatModal}
         inVisible={() => setChatModal(false)}
         item={chatModalItem}
-        onPress={id => {
-          setChatModal(false)
-          if (id === 3 || id === 4) {
+        onPress={(id: any) => {
+          setChatModal(false);
+          if (id === 4) {
             Navigator.setPush(props.componentId, screenName.GroupDetails);
+          } else if (id == 3) {
+            let fromChat = 'Edit Group';
+            Navigator.setPush(
+              props.componentId,
+              screenName.GroupDetails,
+              fromChat,
+            );
           } else {
             Alert.alert('Alert!', 'Service coming soon..');
           }
