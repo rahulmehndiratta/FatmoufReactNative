@@ -27,6 +27,7 @@ import AddActivity from 'screens/Home/AddActivity';
 import Challenge from 'screens/Home/Challenge';
 import ViewActivity from '../screens/Home/ViewActivity';
 import AddParticipate from '../screens/Home/AddParticipate';
+import CameraAndGallery from '@components/CameraAndGallery';
 
 export const screenName = {
   Splash: 'Splash',
@@ -57,6 +58,7 @@ export const screenName = {
   Challenge: 'Challenge',
   ViewActivity: 'ViewActivity',
   AddParticipate: 'AddParticipate',
+  CameraAndGallery: 'CameraAndGallery',
 };
 
 export function registerScreens() {
@@ -93,4 +95,8 @@ export function registerScreens() {
   Navigation.registerComponent(screenName.Challenge, () => Challenge);
   Navigation.registerComponent(screenName.ViewActivity, () => ViewActivity);
   Navigation.registerComponent(screenName.AddParticipate, () => AddParticipate);
+  Navigation.registerComponent(
+    screenName.CameraAndGallery,
+    () => CameraAndGallery,
+  );
 }

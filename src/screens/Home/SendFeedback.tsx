@@ -7,6 +7,9 @@ import { Utils } from '@Utils'
 import { color } from '@styles'
 import ImageCropPicker from 'react-native-image-crop-picker';
 import CustomButton from '@components/CustomButton'
+import { Navigator } from "@Navigator";
+import { screenName } from "@screenName";
+import CameraAndGallery from "@components/CameraAndGallery";
 
 
 export interface Props extends NavigationComponentProps { }
@@ -124,7 +127,7 @@ const SendFeedback: React.FC<Props> = props => {
                         containerStyle={styles.addIconContainer}
                         resizeMode='contain'
                         onPress={() => {
-                            choosePhotoFromLibrary()
+                            Navigator.showModal(screenName.CameraAndGallery)
                         }} />
 
                     <FlatList

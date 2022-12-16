@@ -222,15 +222,16 @@ export const Navigator = {
               passProps: {propsData},
               options: {
                 overlay: {
-                  interceptTouchOutside: false, // this make touch events pass through the invisible parts of the overlay
+                  interceptTouchOutside: true, // this make touch events pass through the invisible parts of the overlay
                 },
                 modalPresentationStyle:
                   OptionsModalPresentationStyle.overCurrentContext,
                 // screenBackgroundColor: 'red',
 
                 layout: {
-                  backgroundColor: '#000a',
-                  componentBackgroundColor: 'transparent',
+                  backgroundColor: '#25222238',
+                  componentBackgroundColor: '#25222238',
+                  orientation: ['portrait'],
                 },
                 // topBar: {
                 //     title: {

@@ -71,7 +71,6 @@ const CompetitiveItems: React.FC<Props> = (props: any) => {
             style={{
               height: 50,
               width: 50,
-              backgroundColor: 'red',
               borderRadius: 100,
             }}
             source={{
