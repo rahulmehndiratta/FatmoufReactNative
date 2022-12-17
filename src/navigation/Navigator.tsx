@@ -218,6 +218,7 @@ export const Navigator = {
         children: [
           {
             component: {
+              id: screenName,
               name: screenName,
               passProps: {propsData},
               options: {

@@ -1,10 +1,11 @@
-import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
-import React, { useState } from 'react';
-import Divider from './Divider';
-import CustomButton from './CustomButton';
-import { Utils } from '@Utils';
-import { color, fontFamily } from '@styles';
-import ImageCropPicker from 'react-native-image-crop-picker';
+import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import Divider from "./Divider";
+import CustomButton from "./CustomButton";
+import { Utils } from "@Utils";
+import { color, fontFamily } from "@styles";
+import ImageCropPicker from "react-native-image-crop-picker";
+
 interface Props {
   modalShow?: boolean;
   setModalShow?: any;

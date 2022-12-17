@@ -1,19 +1,19 @@
-import {Alert, FlatList, StyleSheet, Text, TextInput, View} from 'react-native';
-import React, {useState} from 'react';
-import MySafeArea from '@components/MySafeArea';
-import {NavigationComponentProps} from 'react-native-navigation';
-import ClickableImage from '@components/ClickableImage';
-import {Utils} from '@Utils';
-import {color, fontFamily, fontSize} from '@styles';
-import CustomButton from '@components/CustomButton';
-import ImageCropPicker from 'react-native-image-crop-picker';
+import { Alert, FlatList, StyleSheet, Text, TextInput, View } from "react-native";
+import React, { useState } from "react";
+import MySafeArea from "@components/MySafeArea";
+import { NavigationComponentProps } from "react-native-navigation";
+import ClickableImage from "@components/ClickableImage";
+import { Utils } from "@Utils";
+import { color, fontFamily, fontSize } from "@styles";
+import { Navigator } from "@Navigator";
+import { screenName } from "@screenName";
 
 interface Props extends NavigationComponentProps {}
 
 const AddActivity: React.FC<Props> = (props: any) => {
   const {propsData} = props;
   const [description, setDescription] = useState('');
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState<any>([]);
 
   const renderImageItem = (item: any, index: number) => {
     console.log('imageArr', item);
@@ -47,20 +47,7 @@ const AddActivity: React.FC<Props> = (props: any) => {
     );
   };
 
-  const choosePhotoFromLibrary = () => {
-    ImageCropPicker.openPicker({
-      multiple: true,
-      // width: 300,
-      // height: 400,
-      maxFiles: 5,
-      cropping: true,
-    }).then((image: any) => {
-      console.log('imagesdata', image);
 
-      //image.id=Utils._getRandomId()
-      setImages(image);
-    });
-  };
 
   return (
     <MySafeArea
@@ -132,7 +119,13 @@ const AddActivity: React.FC<Props> = (props: any) => {
             containerStyle={styles.addIconContainer}
             resizeMode="contain"
             onPress={() => {
-              choosePhotoFromLibrary();
+              Navigator.showModal(screenName.CameraAndGallery, {
+                getImage: (imagesArr: any) => {
+                  if (imagesArr) {
+                    setImages((arr: any) => [...arr, ...imagesArr]);
+                  }
+                },
+              });
             }}
           />
 

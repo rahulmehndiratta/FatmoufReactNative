@@ -1,26 +1,15 @@
-import {
-  Alert,
-  FlatList,
-  Image,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
-import React, {useState} from 'react';
-import {NavigationComponentProps} from 'react-native-navigation';
-import MySafeArea from '@components/MySafeArea';
-import {Utils} from '@Utils';
-import {color, fontFamily, fontSize} from '@styles';
-import Tabs from '@components/Tabs';
-import MyTextInput from '@components/MyTextInput';
-import DatePicker from '@components/CustomDatePicker';
-import ClickableImage from '@components/ClickableImage';
-import ImageCropPicker from 'react-native-image-crop-picker';
-import {Navigator} from '@Navigator';
-import {screenName} from '@screenName';
+import { Alert, FlatList, Image, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import React, { useState } from "react";
+import { NavigationComponentProps } from "react-native-navigation";
+import MySafeArea from "@components/MySafeArea";
+import { Utils } from "@Utils";
+import { color, fontFamily, fontSize } from "@styles";
+import Tabs from "@components/Tabs";
+import MyTextInput from "@components/MyTextInput";
+import DatePicker from "@components/CustomDatePicker";
+import ClickableImage from "@components/ClickableImage";
+import { Navigator } from "@Navigator";
+import { screenName } from "@screenName";
 
 export interface Props extends NavigationComponentProps {}
 
@@ -30,7 +19,7 @@ const AddChallenge: React.FC<Props> = props => {
   const [privateAndPublic, setPrivateAndPublic] = useState(0);
   const [description, setDescription] = useState('');
   const [favour, setFavour] = useState('');
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState<any>([]);
   const data = [
     {
       id: 1,
@@ -64,17 +53,6 @@ const AddChallenge: React.FC<Props> = props => {
     );
   };
 
-  const choosePhotoFromLibrary = () => {
-    ImageCropPicker.openPicker({
-      multiple: true,
-      // width: 300,
-      // height: 400,
-      cropping: true,
-      
-    }).then((image: any) => {
-      setImages(image);
-    });
-  };
 
   const icon = (image: any, title: any) => {
     return (
@@ -239,7 +217,13 @@ const AddChallenge: React.FC<Props> = props => {
             style={{width: 100, height: 100}}
             source={require('@images/addGellery.png')}
             onPress={() => {
-              choosePhotoFromLibrary();
+              Navigator.showModal(screenName.CameraAndGallery, {
+                getImage: (imagesArr: any) => {
+                  if (imagesArr) {
+                    setImages((arr: any) => [...arr, ...imagesArr]);
+                  }
+                },
+              });
             }}
           />
 

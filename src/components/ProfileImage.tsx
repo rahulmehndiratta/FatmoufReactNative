@@ -1,8 +1,8 @@
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
-import {Utils} from '@Utils';
-import ModalView from './ModalView';
-import ImageCropPicker from 'react-native-image-crop-picker';
+import { Image, Pressable, StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import { Utils } from "@Utils";
+import ModalView from "./ModalView";
+
 interface Props {}
 const ProfileImage: React.FC<Props> = (props: any) => {
   const [imageData, setImageData] = useState<any>([]);
